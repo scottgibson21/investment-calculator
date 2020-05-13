@@ -5,26 +5,19 @@ import NavDropdown from "react-bootstrap/NavDropDown";
 
 export default function Navigation() {
   return (
-    <NavBar bg="dark" variant="dark" style={{ justifyContent: "center" }}>
-      <Nav activeKey="/home" className="justify-content-end">
+    <NavBar bg="dark" variant="dark" style={{ justifyContent: "flex-end" }}>
+      <div style={{ width: "100%" }}>
+        <NavBar.Brand href="#home">Investment Calculator</NavBar.Brand>
+      </div>
+      <Nav activeKey="/home" style={{ marginRight: 50 }}>
         <Nav.Item>
           <Nav.Link eventKey="link-1">Home</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">About Us</Nav.Link>
+          <Nav.Link eventKey="link-2">About</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
-          </NavDropdown>
+          <Nav.Link eventKey="link-2">Contact</Nav.Link>
         </Nav.Item>
       </Nav>
     </NavBar>
