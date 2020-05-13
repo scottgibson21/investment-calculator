@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <Container>
       <Row style={{ height: 400, marginTop: 50 }}>
-        <Col style={{ border: "1px solid black" }}>
+        <Col>
           <CalculationInput />
         </Col>
         <Col style={{ border: "1px solid black" }}>Results</Col>
