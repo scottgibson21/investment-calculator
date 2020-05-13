@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
+import CalculationResult from "./CalculationResult";
 
 export default function Dashboard() {
   return (
@@ -11,7 +12,9 @@ export default function Dashboard() {
         <Col>
           <CalculationInput />
         </Col>
-        <Col style={{ border: "1px solid black" }}>Results</Col>
+        <Col>
+          <CalculationResult />
+        </Col>
       </Row>
     </Container>
   );

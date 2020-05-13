@@ -10,9 +10,10 @@ export default function CalculationInput() {
   const [montlyContribution, setMontlyContribution] = useState();
   const [rateOfReturn, setRateOfReturn] = useState();
   const [numberOfYears, setNumberOfYears] = useState();
+  const [editInflationDisabled, setEditInflationDisabled] = useState(true);
 
   return (
-    <Form>
+    <Form style={{ marginTop: 40 }}>
       <Form.Group controlId="formStrartingAmount">
         <Form.Label>Starting Amount</Form.Label>
         <OverlayTrigger
@@ -45,6 +46,23 @@ export default function CalculationInput() {
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
         <Form.Control placeholder="0.00%" />
+      </Form.Group>
+      <Form.Group controlId="fromInflationRate">
+        <Form.Label>Inflation Rate</Form.Label>
+        <OverlayTrigger
+          key="inflationRate"
+          placement="right"
+          overlay={<ToolTip>Info about the inflation rate</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <Form.Control placeholder="3.22%" disabled={editInflationDisabled} />
+        <Form.Check
+          type="checkbox"
+          label="Edit Inflation Rate"
+          style={{ marginTop: 10 }}
+          onChange={() => setEditInflationDisabled(!editInflationDisabled)}
+        />
       </Form.Group>
       <Form.Group controlId="forNumberOfYears">
         <Form.Label>Number of Years</Form.Label>
