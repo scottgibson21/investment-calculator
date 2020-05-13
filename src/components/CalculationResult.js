@@ -9,31 +9,9 @@ import {
   Legend,
 } from "recharts";
 
-const data = [
-  {
-    name: 2020,
-    capital: 4000,
-    interest: 100,
-    passiveIncome: 100,
-    total: 4100,
-  },
-  {
-    name: 2021,
-    capital: 5000,
-    interest: 200,
-    passiveIncome: 110,
-    total: 5200,
-  },
-  {
-    name: 2022,
-    capital: 6000,
-    interest: 300,
-    passiveIncome: 150,
-    total: 6300,
-  },
-];
-
 export default function CalculationResult() {
+  const data = mockDataBuiilder(30);
+
   return (
     <div style={{ marginTop: 10 }}>
       <h1 style={{ textAlign: "center" }}>Capital</h1>
@@ -96,3 +74,25 @@ export default function CalculationResult() {
     </div>
   );
 }
+
+const mockDataBuiilder = (dataPoints) => {
+  const data = [];
+  let capital = 10000;
+  let interest = 0;
+
+  for (let i = 0; i < dataPoints; i++) {
+    const dataPointInterest = capital * 0.1;
+    capital += dataPointInterest;
+    interest += dataPointInterest;
+
+    data.push({
+      name: i,
+      capital: capital,
+      interest: interest,
+      passiveIncome: capital * 0.07,
+      total: capital,
+    });
+  }
+
+  return data;
+};
