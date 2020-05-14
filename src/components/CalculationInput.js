@@ -75,7 +75,7 @@ export default function CalculationInput() {
         </OverlayTrigger>
         <Form.Control placeholder="0" />
       </Form.Group>
-      <Button type="submit" disabled>
+      <Button type="submit" disabled={false}>
         Calculate
       </Button>
     </Form>
