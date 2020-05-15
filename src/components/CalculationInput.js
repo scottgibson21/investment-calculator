@@ -8,8 +8,8 @@ import { calculateResultSet } from "../utils/helpers";
 import InputGroup from "react-bootstrap/InputGroup";
 
 export default function CalculationInput() {
-  const [startingAmount, setStartingAmount] = useState("0");
-  const [monthlyContribution, setMonthlyContribution] = useState("0");
+  const [startingAmount, setStartingAmount] = useState();
+  const [monthlyContribution, setMonthlyContribution] = useState();
   const [rateOfReturn, setRateOfReturn] = useState();
   const [inflationRate, setInflationRate] = useState(3.22);
   const [numberOfYears, setNumberOfYears] = useState();
@@ -18,12 +18,12 @@ export default function CalculationInput() {
   const handleStartingAmountChange = (event) => {
     let value = event.target.value.replace(/,/g, "");
 
-    if (!/^(\s*|\d+)$/.test(value)) {
+    if (value === "" || value === undefined) {
+      setStartingAmount(value);
       return;
     }
 
-    if (value === "") {
-      setStartingAmount(value);
+    if (!/^(\s*|\d+)$/.test(value)) {
       return;
     }
 
@@ -33,12 +33,12 @@ export default function CalculationInput() {
   const handleMonthlyContributionChange = (event) => {
     let value = event.target.value.replace(/,/g, "");
 
-    if (!/^(\s*|\d+)$/.test(value)) {
+    if (value === "" || value === undefined) {
+      setStartingAmount(value);
       return;
     }
 
-    if (value === "") {
-      setMonthlyContribution(value);
+    if (!/^(\s*|\d+)$/.test(value)) {
       return;
     }
 
@@ -46,15 +46,61 @@ export default function CalculationInput() {
   };
 
   const handleRateOfReturnChange = (event) => {
-    setRateOfReturn(event.target.value);
+    let value = event.target.value;
+
+    if (
+      value === "" ||
+      value === undefined ||
+      value[value.length - 1] === "."
+    ) {
+      setRateOfReturn(value);
+      return;
+    }
+
+    if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(value)) {
+      console.log("hit the regex");
+      return;
+    }
+
+    console.log("setting the value");
+    setRateOfReturn(parseFloat(value));
   };
 
   const handleInflationRateChange = (event) => {
-    setInflationRate(event.target.value);
+    let value = event.target.value;
+
+    if (
+      value === "" ||
+      value === undefined ||
+      value[value.length - 1] === "."
+    ) {
+      setInflationRate(value);
+      return;
+    }
+
+    if (!/^(\d+(\.\d{0,2})?|\.?\d{1,2})$/.test(event.target.value)) {
+      return;
+    }
+
+    setInflationRate(parseFloat(event.target.value));
   };
 
   const handleNumberOfYearsChange = (event) => {
-    setNumberOfYears(event.target.value);
+    const value = event.target.value;
+
+    if (value === "" || value === undefined) {
+      console.log("the value is: ", value);
+      setNumberOfYears(value);
+      return;
+    }
+
+    if (!/^(\s*|\d+)$/.test(value)) {
+      console.log("year regex");
+      return;
+    }
+
+    console.log("about to set the numbers");
+    setNumberOfYears(parseInt(value));
   };
 
   const handleSubmit = () => {
@@ -75,6 +121,9 @@ export default function CalculationInput() {
   };
 
   const numberWithCommas = (x) => {
+    if (x === undefined) {
+      return;
+    }
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
@@ -136,6 +185,7 @@ export default function CalculationInput() {
           <Form.Control
             placeholder="0.00"
             onChange={handleRateOfReturnChange}
+            value={rateOfReturn}
           />
         </InputGroup>
       </Form.Group>
@@ -174,7 +224,11 @@ export default function CalculationInput() {
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
-        <Form.Control placeholder="0" onChange={handleNumberOfYearsChange} />
+        <Form.Control
+          placeholder="0"
+          value={numberOfYears}
+          onChange={handleNumberOfYearsChange}
+        />
       </Form.Group>
       <Button type="submit" disabled={false}>
         Calculate
