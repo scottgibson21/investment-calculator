@@ -6,7 +6,7 @@ function CalculationResultJumbotron(props) {
     <Jumbotron
       fluid
       style={{
-        borderRadius: "6px",
+        borderRadius: "15px",
         backgroundColor: "#CEEDD3",
         height: "200px",
         display: "flex",
@@ -20,8 +20,6 @@ function CalculationResultJumbotron(props) {
           height: "100px",
           display: "flex",
           flexDirection: "row",
-          alignItems: "flex-start",
-          padding: "0 0 0 0",
           width: "100%",
         }}
       >
@@ -34,24 +32,24 @@ function CalculationResultJumbotron(props) {
           height: "100px",
           display: "flex",
           flexDirection: "row",
-          alignItems: "flex-start",
-          padding: "0 0 0 0",
           width: "100%",
         }}
       >
-        <div style={divStyle}>Div 1</div>
-        <div style={divStyle}>Div 2</div>
-        <div style={divStyle}>Div 3</div>
+        <div style={divStyle}>Div 4</div>
+        <div style={divStyle}>Div 5</div>
+        <div style={divStyle}>Div 6</div>
       </div>
     </Jumbotron>
   );
 }
 
 const divStyle = {
-  borderStyle: "solid",
   width: "100%",
-  textAlign: "center",
+  justifyContent: "center",
   height: "100px",
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
 };
 
 export default CalculationResultJumbotron;
