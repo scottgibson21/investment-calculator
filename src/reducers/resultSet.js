@@ -4,8 +4,7 @@ export default function resultSet(state = [], action) {
   switch (action.type) {
     case ADD_RESULT_SET:
       return {
-        ...state,
-        ...action.resultSet,
+        resultSet: [...action.resultSet],
       };
     case CLEAR_RESULT_SET:
       return {

@@ -6,8 +6,10 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import ToolTip from "react-bootstrap/ToolTip";
 import { calculateResultSet } from "../utils/helpers";
 import InputGroup from "react-bootstrap/InputGroup";
+import { connect } from "react-redux";
+import { addResultSet } from "../actions/resultSet";
 
-export default function CalculationInput() {
+function CalculationInput(props) {
   const [startingAmount, setStartingAmount] = useState();
   const [monthlyContribution, setMonthlyContribution] = useState();
   const [rateOfReturn, setRateOfReturn] = useState();
@@ -105,7 +107,6 @@ export default function CalculationInput() {
 
   const handleSubmit = () => {
     console.log("handle submit called!");
-    console.log("type of starting amount", typeof startingAmount);
 
     const resultSet = calculateResultSet(
       startingAmount,
@@ -118,6 +119,7 @@ export default function CalculationInput() {
     console.log("the result set: ", resultSet);
 
     //Dispatch add result set action
+    props.dispatch(addResultSet(resultSet));
   };
 
   const numberWithCommas = (x) => {
@@ -233,11 +235,13 @@ export default function CalculationInput() {
       <Button type="submit" disabled={false}>
         Calculate
       </Button>
-      <div>{`the current starting amount: ${startingAmount} type: ${typeof startingAmount}`}</div>
+      {/* <div>{`the current starting amount: ${startingAmount} type: ${typeof startingAmount}`}</div>
       <div>{`the current monthly contribution: ${monthlyContribution} type: ${typeof monthlyContribution}`}</div>
       <div>{`the current rate of return: ${rateOfReturn} type: ${typeof rateOfReturn}`}</div>
       <div>{`the current average inflation rate: ${inflationRate} type: ${typeof inflationRate}`}</div>
-      <div>{`the current number of years: ${numberOfYears} type: ${typeof numberOfYears}`}</div>
+      <div>{`the current number of years: ${numberOfYears} type: ${typeof numberOfYears}`}</div> */}
     </Form>
   );
 }
+
+export default connect()(CalculationInput);

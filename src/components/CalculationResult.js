@@ -8,9 +8,13 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { connect } from "react-redux";
 
-export default function CalculationResult() {
+function CalculationResult(props) {
   const data = mockDataBuiilder(30);
+  console.log("props result set", props.resultSet);
+  const { resultSet } = props;
+  console.log("The result set in calc result component", resultSet);
 
   return (
     <div style={{ marginTop: 10 }}>
@@ -18,7 +22,7 @@ export default function CalculationResult() {
       <LineChart
         width={500}
         height={300}
-        data={data}
+        data={resultSet.resultSet}
         margin={{
           top: 5,
           right: 30,
@@ -44,13 +48,18 @@ export default function CalculationResult() {
           name="Interest"
           stroke="#82ca9d"
         />
-        <Line type="monotone" dataKey="total" name="Total" stroke="#de023a" />
+        <Line
+          type="monotone"
+          dataKey="totalAccruedInterest"
+          name="Total Accrued Interest"
+          stroke="#f54242"
+        />
       </LineChart>
       <h1 style={{ textAlign: "center" }}>Passive Income</h1>
       <LineChart
         width={500}
         height={300}
-        data={data}
+        data={resultSet.resultSet}
         margin={{
           top: 5,
           right: 30,
@@ -96,3 +105,12 @@ const mockDataBuiilder = (dataPoints) => {
 
   return data;
 };
+
+function mapStateToProps({ resultSet }) {
+  console.log("result set", resultSet);
+  return {
+    resultSet,
+  };
+}
+
+export default connect(mapStateToProps)(CalculationResult);
