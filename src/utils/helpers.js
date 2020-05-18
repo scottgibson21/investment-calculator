@@ -43,3 +43,21 @@ export function formatNumberWithCommas(input) {
   }
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export const chartData = {
+  capital: {
+    xAxis: "name",
+    displayName: "Capital",
+    color: "#8884d8",
+  },
+  totalAccruedInterest: {
+    xAxis: "name",
+    displayName: "Total Accrued Interest",
+    color: "#8884d8",
+  },
+  passiveIncome: {
+    xAxis: "name",
+    displayName: "Passive Income",
+    color: "#8884d8",
+  },
+};

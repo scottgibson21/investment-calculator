@@ -9,103 +9,34 @@ import {
   Legend,
 } from "recharts";
 import { connect } from "react-redux";
+import Row from "react-bootstrap/Row";
+import CalculationChart from "./CalculationChart";
 
 function CalculationResult(props) {
-  const data = mockDataBuiilder(30);
-  console.log(
-    "props result set in calculation result component",
-    props.resultSet
-  );
   const { resultSet } = props;
 
   return (
-    <div style={{ marginTop: 10 }}>
-      <h1 style={{ textAlign: "center" }}>Capital</h1>
-      <LineChart
-        width={500}
-        height={300}
-        data={resultSet}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="capital"
-          name="Capital"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
+    <React.Fragment>
+      <Row style={styles.mainContainer}>
+        <CalculationChart chartKey="capital" resultSet={resultSet} />
+        <CalculationChart
+          chartKey="totalAccruedInterest"
+          resultSet={resultSet}
         />
-        <Line
-          type="monotone"
-          dataKey="interest"
-          name="Interest"
-          stroke="#82ca9d"
-        />
-        <Line
-          type="monotone"
-          dataKey="totalAccruedInterest"
-          name="Total Accrued Interest"
-          stroke="#f54242"
-        />
-      </LineChart>
-      <h1 style={{ textAlign: "center" }}>Passive Income</h1>
-      <LineChart
-        width={500}
-        height={300}
-        data={resultSet}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line
-          type="monotone"
-          dataKey="passiveIncome"
-          name="Passive Income"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-      </LineChart>
-    </div>
+      </Row>
+      <Row style={styles.mainContainer}>
+        <CalculationChart chartKey="passiveIncome" resultSet={resultSet} />
+      </Row>
+    </React.Fragment>
   );
 }
 
-const mockDataBuiilder = (dataPoints) => {
-  const data = [];
-  let capital = 10000;
-  let interest = 0;
-
-  for (let i = 0; i < dataPoints; i++) {
-    const dataPointInterest = capital * 0.1;
-    capital += dataPointInterest;
-    interest += dataPointInterest;
-
-    data.push({
-      name: i,
-      capital: capital,
-      interest: interest,
-      passiveIncome: capital * 0.07,
-      total: capital,
-    });
-  }
-
-  return data;
+const styles = {
+  mainContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
 };
 
 function mapStateToProps({ results }) {

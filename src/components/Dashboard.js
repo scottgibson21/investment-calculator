@@ -10,19 +10,17 @@ export default function Dashboard() {
   return (
     <div style={{ height: 2000 }}>
       <Container>
-        <Row style={{ height: 700, marginTop: 50 }}>
-          <Col style={{ paddingLeft: "40px" }}>
-            <CalculationInput />
-          </Col>
+        <Row style={{ height: 350, marginTop: 10 }}>
           <Col>
-            <CalculationResult />
+            <CalculationInput />
           </Col>
         </Row>
         <Row>
-          <Col style={{ paddingRight: "40px" }}>
+          <Col>
             <CalculationResultJumbotron />
           </Col>
         </Row>
+        <CalculationResult />
       </Container>
     </div>
   );
