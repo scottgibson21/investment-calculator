@@ -11,25 +11,19 @@ export default function Navigation() {
       </div>
       <Nav activeKey="/home" style={{ marginRight: 50 }}>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">
-            <Link to="/" style={styles.link}>
-              Home
-            </Link>
-          </Nav.Link>
+          <Link to="/" style={styles.link}>
+            Home
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">
-            <Link to="/about" style={styles.link}>
-              About
-            </Link>
-          </Nav.Link>
+          <Link to="/about" style={styles.link}>
+            About
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">
-            <Link to="/contact" style={styles.link}>
-              Contact
-            </Link>
-          </Nav.Link>
+          <Link to="/contact" style={styles.link}>
+            Contact
+          </Link>
         </Nav.Item>
       </Nav>
     </NavBar>
@@ -40,5 +34,6 @@ const styles = {
   link: {
     color: "white",
     textDecoration: "none",
+    marginLeft: "50px",
   },
 };

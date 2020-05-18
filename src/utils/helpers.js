@@ -36,3 +36,10 @@ export function calculateResultSet(
 
   return resultSet;
 }
+
+export function formatNumberWithCommas(input) {
+  if (input === undefined) {
+    return;
+  }
+  return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

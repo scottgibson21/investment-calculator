@@ -105,7 +105,8 @@ function CalculationInput(props) {
     setNumberOfYears(parseInt(value));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log("handle submit called!");
 
     const resultSet = calculateResultSet(

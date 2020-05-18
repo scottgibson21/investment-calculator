@@ -1,14 +1,20 @@
 import { ADD_RESULT_SET, CLEAR_RESULT_SET } from "../actions/resultSet";
 
-export default function resultSet(state = [], action) {
+export default function results(state = {}, action) {
+  // let test = {
+  //   resultSet: [...action.resultSet],
+  // };
+
   switch (action.type) {
     case ADD_RESULT_SET:
       return {
-        resultSet: [...action.resultSet],
+        ...state,
+        resultSet: action.resultSet,
       };
     case CLEAR_RESULT_SET:
       return {
-        state: [],
+        ...state,
+        resultSet: [],
       };
     default:
       return state;

@@ -12,9 +12,11 @@ import { connect } from "react-redux";
 
 function CalculationResult(props) {
   const data = mockDataBuiilder(30);
-  console.log("props result set", props.resultSet);
+  console.log(
+    "props result set in calculation result component",
+    props.resultSet
+  );
   const { resultSet } = props;
-  console.log("The result set in calc result component", resultSet);
 
   return (
     <div style={{ marginTop: 10 }}>
@@ -22,7 +24,7 @@ function CalculationResult(props) {
       <LineChart
         width={500}
         height={300}
-        data={resultSet.resultSet}
+        data={resultSet}
         margin={{
           top: 5,
           right: 30,
@@ -59,7 +61,7 @@ function CalculationResult(props) {
       <LineChart
         width={500}
         height={300}
-        data={resultSet.resultSet}
+        data={resultSet}
         margin={{
           top: 5,
           right: 30,
@@ -106,10 +108,10 @@ const mockDataBuiilder = (dataPoints) => {
   return data;
 };
 
-function mapStateToProps({ resultSet }) {
-  console.log("result set", resultSet);
+function mapStateToProps({ results }) {
+  console.log("the results: ", results);
   return {
-    resultSet,
+    resultSet: results.resultSet,
   };
 }
 
