@@ -10,7 +10,7 @@ export default function Dashboard() {
   return (
     <div style={{ height: 2000 }}>
       <Container>
-        <Row style={{ height: 350, marginTop: 10 }}>
+        <Row style={{ height: 310, marginTop: 10 }}>
           <Col>
             <CalculationInput />
           </Col>
