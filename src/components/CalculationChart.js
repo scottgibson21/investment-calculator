@@ -19,6 +19,7 @@ function CalculationChart(props) {
         width={500}
         height={300}
         data={resultSet}
+        syncId="anyId"
         margin={{
           top: 5,
           right: 30,
