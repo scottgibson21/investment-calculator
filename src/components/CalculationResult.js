@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-} from "recharts";
 import { connect } from "react-redux";
 import Row from "react-bootstrap/Row";
 import CalculationChart from "./CalculationChart";
@@ -21,6 +12,20 @@ function CalculationResult(props) {
         <CalculationChart chartKey="capital" resultSet={resultSet} />
         <CalculationChart
           chartKey="totalAccruedInterest"
+          resultSet={resultSet}
+        />
+      </Row>
+      <Row style={styles.mainContainer}>
+        <CalculationChart chartKey="interest" resultSet={resultSet} />
+        <CalculationChart chartKey="totalContributions" resultSet={resultSet} />
+      </Row>
+      <Row style={styles.mainContainer}>
+        <CalculationChart
+          chartKey="totalAccruedExpenseRatioFees"
+          resultSet={resultSet}
+        />
+        <CalculationChart
+          chartKey="totalAccruedFinancialAdvisorFees"
           resultSet={resultSet}
         />
       </Row>
@@ -40,7 +45,7 @@ const styles = {
 };
 
 function mapStateToProps({ results }) {
-  console.log("the results: ", results);
+  console.log("the results in cal result map state to props: ", results);
   return {
     resultSet: results.resultSet,
   };

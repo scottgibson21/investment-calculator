@@ -14,9 +14,11 @@ function CalculationInput(props) {
   const [startingAmount, setStartingAmount] = useState();
   const [monthlyContribution, setMonthlyContribution] = useState();
   const [rateOfReturn, setRateOfReturn] = useState();
+  const [expenseRatio, setExpenseRatio] = useState(0);
+  const [advisorFees, setAdivsorFees] = useState(0);
   const [inflationRate, setInflationRate] = useState(3.22);
   const [numberOfYears, setNumberOfYears] = useState();
-  const [editInflationDisabled, setEditInflationDisabled] = useState(true);
+  //const [editInflationDisabled, setEditInflationDisabled] = useState(true);
 
   const handleStartingAmountChange = (event) => {
     let value = event.target.value.replace(/,/g, "");
@@ -61,12 +63,48 @@ function CalculationInput(props) {
     }
 
     if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(value)) {
-      console.log("hit the regex");
       return;
     }
 
-    console.log("setting the value");
     setRateOfReturn(parseFloat(value));
+  };
+
+  const handleExpenseRatioChange = (event) => {
+    let value = event.target.value;
+
+    if (
+      value === "" ||
+      value === undefined ||
+      value[value.length - 1] === "."
+    ) {
+      setExpenseRatio(value);
+      return;
+    }
+
+    if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(value)) {
+      return;
+    }
+
+    setExpenseRatio(parseFloat(value));
+  };
+
+  const handleAdvisorFeesChange = (event) => {
+    let value = event.target.value;
+
+    if (
+      value === "" ||
+      value === undefined ||
+      value[value.length - 1] === "."
+    ) {
+      setAdivsorFees(value);
+      return;
+    }
+
+    if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(value)) {
+      return;
+    }
+
+    setAdivsorFees(parseFloat(value));
   };
 
   const handleInflationRateChange = (event) => {
@@ -114,11 +152,13 @@ function CalculationInput(props) {
       startingAmount,
       monthlyContribution,
       rateOfReturn,
+      expenseRatio,
+      advisorFees,
       inflationRate,
       numberOfYears
     );
 
-    console.log("the result set: ", resultSet);
+    console.log("the result set in input handle submit function: ", resultSet);
 
     //Dispatch add result set action
     props.dispatch(addResultSet(resultSet));
@@ -196,9 +236,49 @@ function CalculationInput(props) {
             </InputGroup>
           </Form.Group>
         </Col>
-        <Col style={styles.calculateColumn}>
+        <Col>
+          <Form.Group controlId="formStrartingAmount">
+            <Form.Label>Expense Ratio</Form.Label>
+            <OverlayTrigger
+              key="expenseRation"
+              placement="right"
+              overlay={<ToolTip>Info about the expense ratio</ToolTip>}
+            >
+              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+            </OverlayTrigger>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                placeholder="0.00"
+                onChange={handleExpenseRatioChange}
+                value={expenseRatio}
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group controlId="formMonthlyContribution">
+            <Form.Label>Financial Advisor Fees</Form.Label>
+            <OverlayTrigger
+              key="monthlyContribution"
+              placement="right"
+              overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
+            >
+              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+            </OverlayTrigger>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                placeholder="0.00"
+                onChange={handleAdvisorFeesChange}
+                value={advisorFees}
+              />
+            </InputGroup>
+          </Form.Group>
           <Form.Group controlId="fromInflationRate">
-            <Form.Label>Average Inflation % Rate</Form.Label>
+            <Form.Label>Average Inflation Rate</Form.Label>
             <OverlayTrigger
               key="inflationRate"
               placement="right"
@@ -212,7 +292,7 @@ function CalculationInput(props) {
               </InputGroup.Prepend>
               <Form.Control
                 value={inflationRate}
-                disabled={editInflationDisabled}
+                disabled={true}
                 onChange={handleInflationRateChange}
               />
             </InputGroup>
@@ -223,6 +303,8 @@ function CalculationInput(props) {
               onChange={() => setEditInflationDisabled(!editInflationDisabled)}
             /> */}
           </Form.Group>
+        </Col>
+        <Col style={styles.calculateColumn}>
           <Form.Group controlId="forNumberOfYears">
             <Form.Label>Number of Years</Form.Label>
             <OverlayTrigger
