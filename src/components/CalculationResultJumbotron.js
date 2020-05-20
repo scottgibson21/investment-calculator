@@ -14,7 +14,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import ToolTip from "react-bootstrap/ToolTip";
 
 function CalculationResultJumbotron(props) {
-  let { result } = props;
   return (
     <Jumbotron
       fluid
@@ -28,6 +27,7 @@ function CalculationResultJumbotron(props) {
         padding: "0 0 0 0",
       }}
     >
+      {/* ROW 1*/}
       <div
         style={{
           height: "100px",
@@ -49,9 +49,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.capital === undefined
               ? "---"
-              : `$${formatNumberWithCommas(result.capital)}`}
+              : `$${formatNumberWithCommas(props.capital)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#232f8c" }}>
@@ -67,9 +67,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.totalInterest === undefined
               ? "---"
-              : `$${formatNumberWithCommas(result.totalAccruedInterest)}`}
+              : `$${formatNumberWithCommas(props.totalInterest)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#ac04b8" }}>
@@ -85,12 +85,13 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.totalContributions === undefined
               ? "---"
-              : `$${formatNumberWithCommas(result.totalContributions)}`}
+              : `$${formatNumberWithCommas(props.totalContributions)}`}
           </div>
         </div>
       </div>
+      {/* ROW 2*/}
       <div
         style={{
           height: "100px",
@@ -112,11 +113,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.totalExpenseRatioFees === undefined
               ? "---"
-              : `$${formatNumberWithCommas(
-                  result.totalAccruedExpenseRatioFees
-                )}`}
+              : `$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#fc8f00" }}>
@@ -132,11 +131,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.totalAdvisorFees === undefined
               ? "---"
-              : `$${formatNumberWithCommas(
-                  result.totalAccruedFinancialAdvisorFees
-                )}`}
+              : `$${formatNumberWithCommas(props.totalAdvisorFees)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#51168c" }}>
@@ -152,9 +149,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {result === null
+            {props.passiveIncome === undefined
               ? "---"
-              : `$${formatNumberWithCommas(result.passiveIncome)}/year`}
+              : `$${formatNumberWithCommas(props.passiveIncome)}/year`}
           </div>
         </div>
       </div>
@@ -182,11 +179,33 @@ const resultTextStyle = {
 
 function mapStateToProps({ results }) {
   let { resultSet } = results;
+
+  if (resultSet === undefined) {
+    return {};
+  }
+
   return {
-    result:
-      resultSet === undefined || resultSet.length === 0
-        ? null
-        : resultSet[resultSet.length - 1],
+    capital: resultSet.capital[0].data[resultSet.capital[0].data.length - 1].y,
+    totalInterest:
+      resultSet.totalInterest[0].data[
+        resultSet.totalInterest[0].data.length - 1
+      ].y,
+    totalContributions:
+      resultSet.totalContributions[0].data[
+        resultSet.totalContributions[0].data.length - 1
+      ].y,
+    totalExpenseRatioFees:
+      resultSet.totalExpenseRatioFees[0].data[
+        resultSet.totalExpenseRatioFees[0].data.length - 1
+      ].y,
+    totalAdvisorFees:
+      resultSet.totalAdvisorFees[0].data[
+        resultSet.totalAdvisorFees[0].data.length - 1
+      ].y,
+    passiveIncome:
+      resultSet.passiveIncome[0].data[
+        resultSet.passiveIncome[0].data.length - 1
+      ].y,
   };
 }
 
