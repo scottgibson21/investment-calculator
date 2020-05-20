@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <NavBar bg="dark" variant="dark" style={{ justifyContent: "flex-end" }}>
       <div style={{ width: "100%" }}>
-        <NavBar.Brand href="#home">Investment Calculator</NavBar.Brand>
+        <NavBar.Brand href="#home">Investio</NavBar.Brand>
       </div>
       <Nav activeKey="/home" style={{ marginRight: 50 }}>
         <Nav.Item>
