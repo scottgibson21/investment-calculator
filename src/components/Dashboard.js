@@ -3,8 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
-import CalculationResult from "./CalculationResult";
+import CalculationChartResult from "./CalculationChartResult";
 import CalculationResultJumbotron from "./CalculationResultJumbotron";
+import NivoCalculationChart from "./NivoCalculationChart";
 
 export default function Dashboard() {
   return (
@@ -20,7 +21,7 @@ export default function Dashboard() {
             <CalculationResultJumbotron />
           </Col>
         </Row>
-        <CalculationResult />
+        <CalculationChartResult />
       </Container>
     </div>
   );

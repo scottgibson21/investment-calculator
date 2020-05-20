@@ -11,13 +11,13 @@ import { connect } from "react-redux";
 import { addResultSet } from "../actions/resultSet";
 
 function CalculationInput(props) {
-  const [startingAmount, setStartingAmount] = useState();
-  const [monthlyContribution, setMonthlyContribution] = useState();
-  const [rateOfReturn, setRateOfReturn] = useState();
-  const [expenseRatio, setExpenseRatio] = useState(0);
-  const [advisorFees, setAdivsorFees] = useState(0);
+  const [startingAmount, setStartingAmount] = useState(10000);
+  const [monthlyContribution, setMonthlyContribution] = useState(1000);
+  const [rateOfReturn, setRateOfReturn] = useState(7.5);
+  const [expenseRatio, setExpenseRatio] = useState(0.5);
+  const [advisorFees, setAdivsorFees] = useState(1);
   const [inflationRate, setInflationRate] = useState(3.22);
-  const [numberOfYears, setNumberOfYears] = useState();
+  const [numberOfYears, setNumberOfYears] = useState(5);
   //const [editInflationDisabled, setEditInflationDisabled] = useState(true);
 
   const handleStartingAmountChange = (event) => {

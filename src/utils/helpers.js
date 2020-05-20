@@ -25,22 +25,11 @@ export function calculateResultSet(
     return (capitalInCents * (rateOfReturnInBps - inflationRateInBbs)) / 10000;
   };
 
-  let resultSet = [];
-
-  resultSet.push({
-    name: 0,
-    capital: (capitalInCents / 100).toFixed(2),
-    totalContributions: 0,
-    interest: 0,
-    totalAccruedInterest: 0,
-    expenseRatioFees: 0,
-    totalAccruedExpenseRatioFees: 0,
-    financialAdvisorFees: 0,
-    totalAccruedFinancialAdvisorFees: 0,
-    passiveIncome: (
-      calculatePassiveIncomeInCents(capitalInCents) / 100
-    ).toFixed(2),
-  });
+  //setup initial resultset
+  let initialPassiveIncome = (
+    calculatePassiveIncomeInCents(capitalInCents) / 100
+  ).toFixed(2);
+  let resultSet = generateBaseResultSet(capitalInCents, initialPassiveIncome);
 
   for (let i = 1; i <= numberOfYears; i++) {
     let yearlyContributions = monthlyContributionInCents * 12;
@@ -61,28 +50,166 @@ export function calculateResultSet(
     totalAccruedExpenseRatioFeesInCents += yearlyExpenseRatioFees;
     totalAccruedFinancialAdvisorFeesInCents += yearlyFinancialAdvisorFees;
 
-    //push data for the year onto the result set
-    resultSet.push({
-      name: i,
-      capital: (capitalInCents / 100).toFixed(2),
-      totalContributions: (totalAccruedContributionsInCents / 100).toFixed(2),
-      interest: (yearlyInterest / 100).toFixed(2),
-      totalAccruedInterest: (totalAccruedInterestInCents / 100).toFixed(2),
-      expenseRatioFees: (yearlyExpenseRatioFees / 100).toFixed(2),
-      totalAccruedExpenseRatioFees: (
-        totalAccruedExpenseRatioFeesInCents / 100
-      ).toFixed(2),
-      financialAdvisorFees: (yearlyFinancialAdvisorFees / 100).toFixed(2),
-      totalAccruedFinancialAdvisorFees: (
-        totalAccruedFinancialAdvisorFeesInCents / 100
-      ).toFixed(2),
-      passiveIncome: (
-        calculatePassiveIncomeInCents(capitalInCents) / 100
-      ).toFixed(2),
+    //Total Capital
+    resultSet.capital[0].data.push({
+      x: i,
+      y: (capitalInCents / 100).toFixed(2),
+    });
+
+    //Total Contributions
+    resultSet.totalContributions[0].data.push({
+      x: i,
+      y: (totalAccruedContributionsInCents / 100).toFixed(2),
+    });
+
+    //Yearly Interest
+    resultSet.interest[0].data.push({
+      x: i,
+      y: (yearlyInterest / 100).toFixed(2),
+    });
+
+    //Total Interest
+    resultSet.totalInterest[0].data.push({
+      x: i,
+      y: (totalAccruedInterestInCents / 100).toFixed(2),
+    });
+
+    //Yearly Expense Ratio Fees
+    resultSet.expenseRatioFees[0].data.push({
+      x: i,
+      y: (yearlyExpenseRatioFees / 100).toFixed(2),
+    });
+
+    //Total Expense Ratio Fees
+    resultSet.totalExpenseRatioFees[0].data.push({
+      x: i,
+      y: (totalAccruedExpenseRatioFeesInCents / 100).toFixed(2),
+    });
+
+    //Yearly Adivsor Fees
+    resultSet.adivsorFees[0].data.push({
+      x: i,
+      y: (yearlyFinancialAdvisorFees / 100).toFixed(2),
+    });
+
+    //Total Adivsor Fees
+    resultSet.totalAdvisorFees[0].data.push({
+      x: i,
+      y: (totalAccruedFinancialAdvisorFeesInCents / 100).toFixed(2),
+    });
+
+    //Passive Income
+    resultSet.passiveIncome[0].data.push({
+      x: i,
+      y: (calculatePassiveIncomeInCents(capitalInCents) / 100).toFixed(2),
     });
   }
 
   return resultSet;
+}
+
+function generateBaseResultSet(capitalInCents, initialPassiveIncome) {
+  return {
+    capital: [
+      {
+        id: "totalCapital",
+        data: [
+          {
+            x: 0,
+            y: (capitalInCents / 100).toFixed(2),
+          },
+        ],
+      },
+    ],
+    totalContributions: [
+      {
+        id: "totalContributions",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    interest: [
+      {
+        id: "interest",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    totalInterest: [
+      {
+        id: "totalInterest",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    expenseRatioFees: [
+      {
+        id: "expenseRatioFees",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    totalExpenseRatioFees: [
+      {
+        id: "totalExpenseRatioFees",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    adivsorFees: [
+      {
+        id: "advisorFees",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    totalAdvisorFees: [
+      {
+        id: "totalAdvisorFees",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    passiveIncome: [
+      {
+        id: "passiveIncome",
+        data: [
+          {
+            x: 0,
+            y: initialPassiveIncome,
+          },
+        ],
+      },
+    ],
+  };
 }
 
 export function formatNumberWithCommas(input) {
