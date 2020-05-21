@@ -5,24 +5,35 @@ import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
 import CalculationChartResult from "./CalculationChartResult";
 import CalculationResultJumbotron from "./CalculationResultJumbotron";
-import NivoCalculationChart from "./NivoCalculationChart";
 
 export default function Dashboard() {
   return (
-    <div style={{ height: 2000 }}>
-      <Container>
-        <Row style={{ height: 310, marginTop: 10 }}>
+    <div style={{ height: 2000, margin: 0 }}>
+      <Container fluid style={styles.container}>
+        <Row style={{ width: "auto" }}>
           <Col>
             <CalculationInput />
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <CalculationResultJumbotron />
+          <Col style={styles.resultsColumn}>
+            <Row>
+              <Col>
+                <CalculationResultJumbotron />
+              </Col>
+            </Row>
+            <CalculationChartResult />
           </Col>
         </Row>
-        <CalculationChartResult />
       </Container>
     </div>
   );
 }
+
+const styles = {
+  container: {
+    paddingLeft: 50,
+    paddingRight: 300,
+  },
+  resultsColumn: {
+    flex: 3,
+  },
+};

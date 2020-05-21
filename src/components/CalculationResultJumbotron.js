@@ -25,6 +25,7 @@ function CalculationResultJumbotron(props) {
         flexDirection: "column",
         alignItems: "flex-start",
         padding: "0 0 0 0",
+        marginTop: 60,
       }}
     >
       {/* ROW 1*/}
