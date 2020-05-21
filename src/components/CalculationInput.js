@@ -172,159 +172,151 @@ function CalculationInput(props) {
   };
 
   return (
-    <Form style={{ marginTop: 40 }} onSubmit={handleSubmit}>
-      <Form.Row>
-        <Col>
-          <Form.Group controlId="formStrartingAmount">
-            <Form.Label>Starting Amount</Form.Label>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={<ToolTip>Info about the starting amount</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                placeholder="0"
-                onChange={handleStartingAmountChange}
-                value={numberWithCommas(startingAmount)}
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group controlId="formMonthlyContribution">
-            <Form.Label>Monthly Contribution</Form.Label>
-            <OverlayTrigger
-              key="monthlyContribution"
-              placement="right"
-              overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                placeholder="0"
-                onChange={handleMonthlyContributionChange}
-                value={numberWithCommas(monthlyContribution)}
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group controlId="formRateOfReturn">
-            <Form.Label>Rate of Return</Form.Label>
-            <OverlayTrigger
-              key="rateOfReturn"
-              placement="right"
-              overlay={<ToolTip>Info about the rate of return</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                placeholder="0.00"
-                onChange={handleRateOfReturnChange}
-                value={rateOfReturn}
-              />
-            </InputGroup>
-          </Form.Group>
-        </Col>
-        <Col>
-          <Form.Group controlId="formStrartingAmount">
-            <Form.Label>Expense Ratio</Form.Label>
-            <OverlayTrigger
-              key="expenseRation"
-              placement="right"
-              overlay={<ToolTip>Info about the expense ratio</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                placeholder="0.00"
-                onChange={handleExpenseRatioChange}
-                value={expenseRatio}
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group controlId="formMonthlyContribution">
-            <Form.Label>Financial Advisor Fees</Form.Label>
-            <OverlayTrigger
-              key="monthlyContribution"
-              placement="right"
-              overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                placeholder="0.00"
-                onChange={handleAdvisorFeesChange}
-                value={advisorFees}
-              />
-            </InputGroup>
-          </Form.Group>
-          <Form.Group controlId="fromInflationRate">
-            <Form.Label>Average Inflation Rate</Form.Label>
-            <OverlayTrigger
-              key="inflationRate"
-              placement="right"
-              overlay={<ToolTip>Info about the inflation rate</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <InputGroup>
-              <InputGroup.Prepend>
-                <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
-              </InputGroup.Prepend>
-              <Form.Control
-                value={inflationRate}
-                disabled={true}
-                onChange={handleInflationRateChange}
-              />
-            </InputGroup>
-            {/* <Form.Check
+    <Form style={{ marginTop: 60 }} onSubmit={handleSubmit}>
+      <Form.Group controlId="formStrartingAmount">
+        <Form.Label>Starting Amount</Form.Label>
+        <OverlayTrigger
+          key="startingAmount"
+          placement="right"
+          overlay={<ToolTip>Info about the starting amount</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            placeholder="0"
+            onChange={handleStartingAmountChange}
+            value={numberWithCommas(startingAmount)}
+          />
+        </InputGroup>
+      </Form.Group>
+      <Form.Group controlId="formMonthlyContribution">
+        <Form.Label>Monthly Contribution</Form.Label>
+        <OverlayTrigger
+          key="monthlyContribution"
+          placement="right"
+          overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">$</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            placeholder="0"
+            onChange={handleMonthlyContributionChange}
+            value={numberWithCommas(monthlyContribution)}
+          />
+        </InputGroup>
+      </Form.Group>
+      <Form.Group controlId="forNumberOfYears">
+        <Form.Label>Number of Years</Form.Label>
+        <OverlayTrigger
+          key="numberOfYears"
+          placement="right"
+          overlay={<ToolTip>Info about the number of years</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <Form.Control
+          placeholder="0"
+          value={numberOfYears}
+          onChange={handleNumberOfYearsChange}
+        />
+      </Form.Group>
+      <Form.Group controlId="formRateOfReturn">
+        <Form.Label>Rate of Return</Form.Label>
+        <OverlayTrigger
+          key="rateOfReturn"
+          placement="right"
+          overlay={<ToolTip>Info about the rate of return</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            placeholder="0.00"
+            onChange={handleRateOfReturnChange}
+            value={rateOfReturn}
+          />
+        </InputGroup>
+      </Form.Group>
+      <Form.Group controlId="formStrartingAmount">
+        <Form.Label>Expense Ratio</Form.Label>
+        <OverlayTrigger
+          key="expenseRation"
+          placement="right"
+          overlay={<ToolTip>Info about the expense ratio</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            placeholder="0.00"
+            onChange={handleExpenseRatioChange}
+            value={expenseRatio}
+          />
+        </InputGroup>
+      </Form.Group>
+      <Form.Group controlId="formMonthlyContribution">
+        <Form.Label>Financial Advisor Fees</Form.Label>
+        <OverlayTrigger
+          key="monthlyContribution"
+          placement="right"
+          overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            placeholder="0.00"
+            onChange={handleAdvisorFeesChange}
+            value={advisorFees}
+          />
+        </InputGroup>
+      </Form.Group>
+      <Form.Group controlId="fromInflationRate">
+        <Form.Label>Average Inflation Rate</Form.Label>
+        <OverlayTrigger
+          key="inflationRate"
+          placement="right"
+          overlay={<ToolTip>Info about the inflation rate</ToolTip>}
+        >
+          <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
+        </OverlayTrigger>
+        <InputGroup>
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroupPrepend">%</InputGroup.Text>
+          </InputGroup.Prepend>
+          <Form.Control
+            value={inflationRate}
+            disabled={true}
+            onChange={handleInflationRateChange}
+          />
+        </InputGroup>
+        {/* <Form.Check
               type="checkbox"
               label="Edit Inflation Rate"
               style={{ marginTop: 10 }}
               onChange={() => setEditInflationDisabled(!editInflationDisabled)}
             /> */}
-          </Form.Group>
-        </Col>
-        <Col style={styles.calculateColumn}>
-          <Form.Group controlId="forNumberOfYears">
-            <Form.Label>Number of Years</Form.Label>
-            <OverlayTrigger
-              key="numberOfYears"
-              placement="right"
-              overlay={<ToolTip>Info about the number of years</ToolTip>}
-            >
-              <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
-            </OverlayTrigger>
-            <Form.Control
-              placeholder="0"
-              value={numberOfYears}
-              onChange={handleNumberOfYearsChange}
-            />
-          </Form.Group>
-          <Button type="submit" disabled={false} style={styles.calculateButton}>
-            Calculate
-          </Button>
-        </Col>
-      </Form.Row>
+      </Form.Group>
+      <Button type="submit" disabled={false} style={styles.calculateButton}>
+        Calculate
+      </Button>
     </Form>
   );
 }
@@ -332,7 +324,8 @@ function CalculationInput(props) {
 const styles = {
   calculateButton: {
     alignSelf: "right",
-    marginTop: "32px",
+    marginLeft: 150,
+    width: 200,
   },
   calculateColumn: {
     display: "flex",
