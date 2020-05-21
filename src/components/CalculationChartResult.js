@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CalculationChart from "./CalculationChart";
 import NivoCalculationChart from "./NivoCalculationChart";
 
 function CalculationChartResult(props) {
@@ -14,7 +13,7 @@ function CalculationChartResult(props) {
 
   return (
     <React.Fragment>
-      <Row>
+      <Row style={styles.row}>
         <Col style={styles.column}>
           <h2 style={styles.chartHeader}>Capital</h2>
           <NivoCalculationChart chartKey={"capital"} />
@@ -24,7 +23,7 @@ function CalculationChartResult(props) {
           <NivoCalculationChart chartKey={"totalContributions"} />
         </Col>
       </Row>
-      <Row>
+      <Row style={styles.row}>
         <Col style={styles.column}>
           <h2 style={styles.chartHeader}>Interest</h2>
           <NivoCalculationChart chartKey={"interest"} />
@@ -34,7 +33,7 @@ function CalculationChartResult(props) {
           <NivoCalculationChart chartKey={"totalInterest"} />
         </Col>
       </Row>
-      <Row>
+      <Row style={styles.row}>
         <Col style={styles.column}>
           <h2 style={styles.chartHeader}>Expense Ratio Fees</h2>
           <NivoCalculationChart chartKey={"expenseRatioFees"} />
@@ -44,7 +43,7 @@ function CalculationChartResult(props) {
           <NivoCalculationChart chartKey={"totalExpenseRatioFees"} />
         </Col>
       </Row>
-      <Row>
+      <Row style={styles.row}>
         <Col style={styles.column}>
           <h2 style={styles.chartHeader}>Advisor Fees</h2>
           <NivoCalculationChart chartKey={"adivsorFees"} />
@@ -72,6 +71,9 @@ const styles = {
   },
   column: {
     height: 500,
+  },
+  row: {
+    paddingLeft: 30,
   },
 };
 
