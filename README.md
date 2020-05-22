@@ -1,5 +1,6 @@
 # Investment Calculator
 This is a single page application that allows a user to calculate potential investment returns.
+Note: this repo is a work in progress.
 
 ## Setup
 1.  Clone the repo
