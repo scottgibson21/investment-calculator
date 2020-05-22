@@ -178,7 +178,7 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="startingAmount"
           placement="right"
-          overlay={<ToolTip>Info about the starting amount</ToolTip>}
+          overlay={<ToolTip>The initial investment amount</ToolTip>}
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -198,7 +198,11 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="monthlyContribution"
           placement="right"
-          overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
+          overlay={
+            <ToolTip>
+              The dollar amount you plan to contribute monthly to the investment
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -218,7 +222,12 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="numberOfYears"
           placement="right"
-          overlay={<ToolTip>Info about the number of years</ToolTip>}
+          overlay={
+            <ToolTip>
+              They total number of years that the investment will accrue
+              interest
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -233,7 +242,13 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="rateOfReturn"
           placement="right"
-          overlay={<ToolTip>Info about the rate of return</ToolTip>}
+          overlay={
+            <ToolTip>
+              The average rate of return for the investment. The average rate of
+              return for the stock market as a whole over the last 100 years is
+              about 10%
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -253,7 +268,14 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="expenseRation"
           placement="right"
-          overlay={<ToolTip>Info about the expense ratio</ToolTip>}
+          overlay={
+            <ToolTip>
+              The expense ratio of an index fund or mutual fund measures how
+              much of a funds assets are used for administrative and operating
+              costs. These can be found on the index funds prospectus page and
+              generally fall in the range between .10% and 2.5%
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -273,7 +295,15 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="monthlyContribution"
           placement="right"
-          overlay={<ToolTip>Info about the monthly contribution</ToolTip>}
+          overlay={
+            <ToolTip>
+              Optional, if you have a professional managaging your investment
+              portfolio, you will generally pay them a percentage of the assets
+              in your portfolio. this is generally around 1%. If you are a
+              personal investor and do you pay somebody to manage your portfolio
+              you can leave this as 0.{" "}
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>
@@ -293,7 +323,13 @@ function CalculationInput(props) {
         <OverlayTrigger
           key="inflationRate"
           placement="right"
-          overlay={<ToolTip>Info about the inflation rate</ToolTip>}
+          overlay={
+            <ToolTip>
+              The average inflation rate in the US over the last 100 years is
+              about 3.22%. This number if used to calculate the potential
+              passive income from your investments.
+            </ToolTip>
+          }
         >
           <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
         </OverlayTrigger>

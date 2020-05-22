@@ -44,7 +44,12 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="startingAmount"
               placement="right"
-              overlay={<ToolTip>Info about the Ending Capital</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The projected total monetary value of the account at the end
+                  of the time period
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
@@ -62,7 +67,12 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="startingAmount"
               placement="right"
-              overlay={<ToolTip>Info about the Interest Accrued</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The total dollar amount of interest accrued during the time
+                  period
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
@@ -80,7 +90,12 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="totalContributions"
               placement="right"
-              overlay={<ToolTip>Info about the Total Contributions</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The total dollar amount of contributions made during the time
+                  period
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
@@ -108,7 +123,12 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="startingAmount"
               placement="right"
-              overlay={<ToolTip>Info about the Expense Ratio Fees</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The total dollar amount lost to expense ratio fees during the
+                  time period
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
@@ -126,7 +146,12 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="startingAmount"
               placement="right"
-              overlay={<ToolTip>Info about the Financial Advisor Fees</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The total dollar amount lost to financial advisor feeds during
+                  the time period
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
@@ -144,7 +169,15 @@ function CalculationResultJumbotron(props) {
             <OverlayTrigger
               key="startingAmount"
               placement="right"
-              overlay={<ToolTip>Info about the Passive Income</ToolTip>}
+              overlay={
+                <ToolTip>
+                  The projected passive income from the ending portfolio.
+                  Passive income is the amount that can be withdrawn from the
+                  account on a yearly basis indefinitely, while maintaining the
+                  value of the base principal. This value is adjusted for
+                  inflation.
+                </ToolTip>
+              }
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
