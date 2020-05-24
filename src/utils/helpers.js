@@ -19,7 +19,9 @@ export function calculateResultSet(
   let totalAccruedContributionsInCents = 0;
   let totalAccruedInterestInCents = 0;
   let totalAccruedExpenseRatioFeesInCents = 0;
+  let totalAccruedExpenseRatioFeesPlusOpportunityCostInCents = 0;
   let totalAccruedFinancialAdvisorFeesInCents = 0;
+  let totalAccruedFinancialAdivsorFeesPlusOpportunityCostInCents = 0;
 
   let calculatePassiveIncomeInCents = (capitalInCents) => {
     return (capitalInCents * (rateOfReturnInBps - inflationRateInBbs)) / 10000;
@@ -38,9 +40,22 @@ export function calculateResultSet(
 
     //calculate the yearly interest and subtract expense ratio and financial adivsor fees
     let yearlyInterest = (capitalInCents * rateOfReturnInBps) / 10000;
+
+    //calculate yearly opportunity costs for expense ratio fees
     let yearlyExpenseRatioFees = (capitalInCents * expenseRatioInBps) / 10000;
+    let yearlyExpenseRatioFeeOpportunityCost =
+      (totalAccruedExpenseRatioFeesPlusOpportunityCostInCents *
+        rateOfReturnInBps) /
+      10000;
+
+    //calculate yearly opportunity costs for advisor fees
     let yearlyFinancialAdvisorFees =
       (capitalInCents * financialAdvisorFeesInBps) / 10000;
+    let yearlyFinancialAdivsorOpportunityCost =
+      (totalAccruedFinancialAdivsorFeesPlusOpportunityCostInCents *
+        rateOfReturnInBps) /
+      10000;
+
     yearlyInterest =
       yearlyInterest - yearlyExpenseRatioFees - yearlyFinancialAdvisorFees;
     capitalInCents += yearlyInterest;
@@ -49,6 +64,10 @@ export function calculateResultSet(
     totalAccruedInterestInCents += yearlyInterest;
     totalAccruedExpenseRatioFeesInCents += yearlyExpenseRatioFees;
     totalAccruedFinancialAdvisorFeesInCents += yearlyFinancialAdvisorFees;
+    totalAccruedExpenseRatioFeesPlusOpportunityCostInCents +=
+      yearlyExpenseRatioFees + yearlyExpenseRatioFeeOpportunityCost;
+    totalAccruedFinancialAdivsorFeesPlusOpportunityCostInCents +=
+      yearlyFinancialAdvisorFees + yearlyFinancialAdivsorOpportunityCost;
 
     //Total Capital
     resultSet.capital[0].data.push({
@@ -86,6 +105,14 @@ export function calculateResultSet(
       y: (totalAccruedExpenseRatioFeesInCents / 100).toFixed(2),
     });
 
+    //Total Expense Ratio Opportunity Costs
+    resultSet.totalExpenseRatioOpportunityCost[0].data.push({
+      x: i,
+      y: (totalAccruedExpenseRatioFeesPlusOpportunityCostInCents / 100).toFixed(
+        2
+      ),
+    });
+
     //Yearly Adivsor Fees
     resultSet.adivsorFees[0].data.push({
       x: i,
@@ -96,6 +123,14 @@ export function calculateResultSet(
     resultSet.totalAdvisorFees[0].data.push({
       x: i,
       y: (totalAccruedFinancialAdvisorFeesInCents / 100).toFixed(2),
+    });
+
+    //Total Adivsor Fees Opportunity Cost
+    resultSet.totalAdvisorOpportunityCost[0].data.push({
+      x: i,
+      y: (
+        totalAccruedFinancialAdivsorFeesPlusOpportunityCostInCents / 100
+      ).toFixed(2),
     });
 
     //Passive Income
@@ -176,6 +211,17 @@ function generateBaseResultSet(capitalInCents, initialPassiveIncome) {
         ],
       },
     ],
+    totalExpenseRatioOpportunityCost: [
+      {
+        id: "totalExpenseRatioTrueCost",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
     adivsorFees: [
       {
         id: "advisorFees",
@@ -190,6 +236,17 @@ function generateBaseResultSet(capitalInCents, initialPassiveIncome) {
     totalAdvisorFees: [
       {
         id: "totalAdvisorFees",
+        data: [
+          {
+            x: 0,
+            y: 0,
+          },
+        ],
+      },
+    ],
+    totalAdvisorOpportunityCost: [
+      {
+        id: "totalAdvisorTrueCost",
         data: [
           {
             x: 0,
