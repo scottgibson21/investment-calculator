@@ -20,7 +20,7 @@ function CalculationResultJumbotron(props) {
       style={{
         borderRadius: "15px",
         backgroundColor: "#BDC3C7",
-        height: "200px",
+        height: "300px",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -189,6 +189,67 @@ function CalculationResultJumbotron(props) {
           </div>
         </div>
       </div>
+      {/*Row 3*/}
+      <div
+        style={{
+          height: "100px",
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+        }}
+      >
+        <div style={{ ...divStyle, color: "#bd1209" }}>
+          <div style={inlineDivStyle}>
+            <AccountBalance style={{ marginRight: "5px" }} />
+            <div>Expense Ratio Opportunity Cost</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The true opportunity cost of the expense ratio fees. This is
+                  the dollar amount of the fees and the interest those fees
+                  would have earned had they remained as invested capital.
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </div>
+          <div style={resultTextStyle}>
+            {props.totalExpenseRatioOpportunityCost === undefined
+              ? "---"
+              : `$${formatNumberWithCommas(
+                  props.totalExpenseRatioOpportunityCost
+                )}`}
+          </div>
+        </div>
+        <div style={{ ...divStyle, color: "#fc8f00" }}>
+          <div style={inlineDivStyle}>
+            <Person style={{ marginRight: "5px" }} />
+            <div>Financial Adivsor Opportunity Cost</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The true opportunity cost of the financial advisor fees. This
+                  is the dollar amount of the fees and the interest those fees
+                  would have earned had they remained as invested capital.
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </div>
+          <div style={resultTextStyle}>
+            {props.totalAdvisorOpportunityCost === undefined
+              ? "---"
+              : `$${formatNumberWithCommas(props.totalAdvisorOpportunityCost)}`}
+          </div>
+        </div>
+        <div style={{ ...divStyle, color: "#ac04b8" }}></div>
+      </div>
     </Jumbotron>
   );
 }
@@ -232,9 +293,17 @@ function mapStateToProps({ results }) {
       resultSet.totalExpenseRatioFees[0].data[
         resultSet.totalExpenseRatioFees[0].data.length - 1
       ].y,
+    totalExpenseRatioOpportunityCost:
+      resultSet.totalExpenseRatioOpportunityCost[0].data[
+        resultSet.totalExpenseRatioOpportunityCost[0].data.length - 1
+      ].y,
     totalAdvisorFees:
       resultSet.totalAdvisorFees[0].data[
         resultSet.totalAdvisorFees[0].data.length - 1
+      ].y,
+    totalAdvisorOpportunityCost:
+      resultSet.totalAdvisorOpportunityCost[0].data[
+        resultSet.totalAdvisorOpportunityCost[0].data.length - 1
       ].y,
     passiveIncome:
       resultSet.passiveIncome[0].data[
