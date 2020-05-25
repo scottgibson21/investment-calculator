@@ -148,7 +148,7 @@ function CalculationResultJumbotron(props) {
               placement="right"
               overlay={
                 <ToolTip>
-                  The total dollar amount lost to financial advisor feeds during
+                  The total dollar amount lost to financial advisor fees during
                   the time period
                 </ToolTip>
               }
@@ -171,11 +171,11 @@ function CalculationResultJumbotron(props) {
               placement="right"
               overlay={
                 <ToolTip>
-                  The projected passive income from the ending portfolio.
-                  Passive income is the amount that can be withdrawn from the
-                  account on a yearly basis indefinitely, while maintaining the
-                  value of the base principal. This value is adjusted for
-                  inflation.
+                  The projected passive income from the ending capital. Passive
+                  income is the amount that can be withdrawn from the account on
+                  a yearly basis indefinitely, while maintaining the value of
+                  the ending capital. The basic formula is: base capital * (rate
+                  of return - inflation rate).
                 </ToolTip>
               }
             >
