@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
-import { FullscreenExit } from "@material-ui/icons";
 
 function About() {
   return (
@@ -38,6 +37,11 @@ const styles = {
   container: {
     justifyContent: "center",
     alignItems: "center",
+    border: "solid",
+    width: 700,
+    borderRadius: 25,
+    backgroundColor: "#41526e",
+    color: "#FFFFFF",
   },
   aboutHeader: {
     marginTop: 75,

@@ -6,6 +6,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import ToolTip from "react-bootstrap/ToolTip";
 import { calculateResultSet } from "../utils/helpers";
 import InputGroup from "react-bootstrap/InputGroup";
+
 import { connect } from "react-redux";
 import { addResultSet } from "../actions/resultSet";
 
