@@ -10,6 +10,7 @@ import {
 import { connect } from "react-redux";
 import { formatNumberWithCommas } from "../utils/helpers";
 import { InfoCircle } from "react-bootstrap-icons";
+import Row from "react-bootstrap/Row";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import ToolTip from "react-bootstrap/ToolTip";
 
@@ -20,7 +21,8 @@ function CalculationResultJumbotron(props) {
       style={{
         borderRadius: "15px",
         backgroundColor: "#BDC3C7",
-        height: "300px",
+        width: "100%",
+        height: 400,
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -28,6 +30,7 @@ function CalculationResultJumbotron(props) {
         marginTop: 60,
       }}
     >
+      <h2 style={styles.overviewHeader}>Overview</h2>
       {/* ROW 1*/}
       <div
         style={{
@@ -139,7 +142,7 @@ function CalculationResultJumbotron(props) {
               : `$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
           </div>
         </div>
-        <div style={{ ...divStyle, color: "#fc8f00" }}>
+        <div style={{ ...divStyle, color: "#d46e08" }}>
           <div style={inlineDivStyle}>
             <Person style={{ marginRight: "5px" }} />
             <div>Financial Advisor Fees</div>
@@ -224,7 +227,7 @@ function CalculationResultJumbotron(props) {
                 )}`}
           </div>
         </div>
-        <div style={{ ...divStyle, color: "#fc8f00" }}>
+        <div style={{ ...divStyle, color: "#d46e08" }}>
           <div style={inlineDivStyle}>
             <Person style={{ marginRight: "5px" }} />
             <div>Financial Adivsor Opportunity Cost</div>
@@ -253,6 +256,16 @@ function CalculationResultJumbotron(props) {
     </Jumbotron>
   );
 }
+
+const styles = {
+  overviewHeader: {
+    fontFamily: "Permanent Marker",
+    fontSize: 35,
+    color: "black",
+    alignSelf: "center",
+    marginTop: 20,
+  },
+};
 
 const divStyle = {
   width: "100%",

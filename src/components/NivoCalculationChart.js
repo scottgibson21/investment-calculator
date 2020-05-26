@@ -7,7 +7,7 @@ function NivoCalculationChart(props) {
   const { resultSet } = props;
   return (
     <ResponsiveLine
-      data={resultSet[props.chartKey]}
+      data={resultSet === undefined ? [] : resultSet[props.chartKey]}
       margin={{ top: 10, right: 110, bottom: 100, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{

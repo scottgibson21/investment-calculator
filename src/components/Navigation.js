@@ -12,7 +12,7 @@ export default function Navigation() {
       <Nav activeKey="/home" style={{ marginRight: 50 }}>
         <Nav.Item>
           <Link to="/" style={styles.link}>
-            Home
+            Calculator
           </Link>
         </Nav.Item>
         <Nav.Item>

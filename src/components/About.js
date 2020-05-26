@@ -35,9 +35,10 @@ function About() {
 
 const styles = {
   container: {
+    marginTop: 80,
     justifyContent: "center",
     alignItems: "center",
-    border: "solid",
+    border: "none",
     width: 700,
     borderRadius: 25,
     backgroundColor: "#41526e",

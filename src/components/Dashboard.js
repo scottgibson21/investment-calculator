@@ -20,7 +20,11 @@ export default function Dashboard() {
                 <CalculationResultJumbotron />
               </Col>
             </Row>
-            <CalculationChartResult />
+            <Row>
+              <Col>
+                <CalculationChartResult />
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
@@ -31,7 +35,8 @@ export default function Dashboard() {
 const styles = {
   container: {
     paddingLeft: 50,
-    paddingRight: 300,
+    paddingRight: 50,
+    color: "#FFFFFF",
   },
   resultsColumn: {
     flex: 3,

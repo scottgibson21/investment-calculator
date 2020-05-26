@@ -2,18 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import NivoCalculationChart from "./NivoCalculationChart";
 
 function CalculationChartResult(props) {
-  const { resultSet } = props;
+  //const { resultSet } = props;
 
-  if (resultSet === undefined) {
-    return <div>There are no results</div>;
-  }
+  // if (resultSet === undefined) {
+  //   return <div></div>;
+  // }
 
   return (
-    <React.Fragment>
-      <Row style={styles.row}>
+    <Container style={styles.mainContainer} fluid>
+      <h2 style={styles.detailsHeader}>Details</h2>
+      <Row style={{ paddingTop: 50, ...styles.row }}>
         <Col style={styles.column}>
           <h2 style={styles.chartHeader}>Capital</h2>
           <NivoCalculationChart chartKey={"capital"} />
@@ -53,16 +55,26 @@ function CalculationChartResult(props) {
           <NivoCalculationChart chartKey={"passiveIncome"} />
         </Col>
       </Row>
-    </React.Fragment>
+    </Container>
   );
 }
 
 const styles = {
   mainContainer: {
+    backgroundColor: "#BDC3C7",
+    borderRadius: "15px",
+    margin: 0,
+    width: "100%",
+    color: "#000000",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    height: 400,
+    flexDirection: "column",
+  },
+  detailsHeader: {
+    fontFamily: "Permanent Marker",
+    fontSize: 35,
+    color: "black",
+    alignSelf: "center",
+    marginTop: 20,
   },
   chartHeader: {
     fontSize: "1rem",
