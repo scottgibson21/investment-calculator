@@ -23,7 +23,7 @@ function Contact() {
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
+            <Form.Text>
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
@@ -44,6 +44,7 @@ const styles = {
   container: {
     justifyContent: "center",
     alignItems: "center",
+    color: "#FFFFFF",
   },
   contactHeader: {
     marginTop: 75,

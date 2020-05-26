@@ -172,7 +172,8 @@ function CalculationInput(props) {
   };
 
   return (
-    <Form style={{ marginTop: 60 }} onSubmit={handleSubmit}>
+    <Form style={styles.form} onSubmit={handleSubmit}>
+      <h2 style={styles.formHeader}>Calculator</h2>
       <Form.Group controlId="formStrartingAmount">
         <Form.Label>Starting Amount</Form.Label>
         <OverlayTrigger
@@ -358,9 +359,22 @@ function CalculationInput(props) {
 }
 
 const styles = {
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#BDC3C7",
+    borderRadius: "15px",
+    marginTop: 60,
+    padding: 20,
+    color: "black",
+  },
+  formHeader: {
+    fontFamily: "Permanent Marker",
+    fontSize: 35,
+    alignSelf: "center",
+  },
   calculateButton: {
-    alignSelf: "right",
-    marginLeft: 150,
+    alignSelf: "center",
     width: 200,
   },
   calculateColumn: {
