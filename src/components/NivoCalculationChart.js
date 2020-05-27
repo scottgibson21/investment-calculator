@@ -8,7 +8,7 @@ function NivoCalculationChart(props) {
   return (
     <ResponsiveLine
       data={resultSet === undefined ? [] : resultSet[props.chartKey]}
-      margin={{ top: 10, right: 110, bottom: 100, left: 60 }}
+      margin={{ top: 10, right: 110, bottom: 100, left: 80 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
@@ -34,10 +34,10 @@ function NivoCalculationChart(props) {
         tickPadding: 5,
         tickRotation: 0,
         legend: "$ amount",
-        legendOffset: -40,
+        legendOffset: -55,
         legendPosition: "middle",
       }}
-      colors={{ scheme: "dark2" }}
+      colors={{ scheme: "category10" }}
       pointSize={10}
       lineWidth={10}
       pointColor={{ from: "#ffffff" }}

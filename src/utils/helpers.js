@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export function calculateResultSet(
   startingAmount,
   monthlyContribution,
@@ -276,40 +278,43 @@ export function formatNumberWithCommas(input) {
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export const chartData = {
-  capital: {
-    xAxis: "name",
-    displayName: "Capital",
-    color: "#8884d8",
-  },
-  totalAccruedInterest: {
-    xAxis: "name",
-    displayName: "Total Accrued Interest",
-    color: "#8884d8",
-  },
-  interest: {
-    xAxis: "name",
-    displayName: "Interest",
-    color: "#8884d8",
-  },
-  totalContributions: {
-    xAxis: "name",
-    displayName: "Total Contributions",
-    color: "#8884d8",
-  },
-  passiveIncome: {
-    xAxis: "name",
-    displayName: "Passive Income",
-    color: "#8884d8",
-  },
-  totalAccruedExpenseRatioFees: {
-    xAxis: "name",
-    displayName: "Total Expense Ratio Fees",
-    color: "#8884d8",
-  },
-  totalAccruedFinancialAdvisorFees: {
-    xAxis: "name",
-    displayName: "Total Financial Adivsor Fees",
-    color: "#8884d8",
-  },
-};
+export const calculationInputSchema = yup.object({
+  startingAmount: yup
+    .number("Starting amount must be a number")
+    .required("Required")
+    .positive("Starting Amount must be positive")
+    .integer("Must be a whole number")
+    .max(1000000000, "Starting Amount must be less than 1,000,000,000"),
+  monthlyContribution: yup
+    .number("Monlthly Contribution must be a number")
+    .required("Required")
+    .positive("Monthly Contribution must be positive")
+    .integer("Must be a whole number")
+    .max(1000000, "Monthly Contribution must be less than 1,000,000"),
+  numberOfYears: yup
+    .number()
+    .required("Required")
+    .positive("Number of Years must be positive")
+    .integer("Must be a whole number")
+    .max(100, "Number of Years must be less than 100"),
+  rateOfReturn: yup
+    .number("Must be a number")
+    .required("Required")
+    .min(0, "Must be greater than 0")
+    .max(100, "must be less than 100"),
+  expenseRatio: yup
+    .number("Must be a number")
+    .required("Required")
+    .min(0, "Must be greater than 0")
+    .max(100, "must be less than 100"),
+  advisorFees: yup
+    .number("Must be a number")
+    .required("Required")
+    .min(0, "Must be greater than 0")
+    .max(100, "must be less than 100"),
+  inflationRate: yup
+    .number("Must be a number")
+    .required("Required")
+    .min(0, "Must be greater than 0")
+    .max(100, "must be less than 100"),
+});
