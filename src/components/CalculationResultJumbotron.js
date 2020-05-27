@@ -42,48 +42,20 @@ function CalculationResultJumbotron(props) {
       >
         <div style={{ ...divStyle, color: "#055e11" }}>
           <div style={inlineDivStyle}>
-            <AttachMoney />
-            <div>Ending Capital</div>
+            <AttachMoney style={{ marginRight: "5px" }} />
+            <div>Starting Capital</div>
             <OverlayTrigger
-              key="startingAmount"
+              key="startingCapital"
               placement="right"
-              overlay={
-                <ToolTip>
-                  The projected total monetary value of the account at the end
-                  of the time period
-                </ToolTip>
-              }
+              overlay={<ToolTip>The starting amount of capital</ToolTip>}
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {props.capital === undefined
+            {props.startingCapital === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.capital)}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#232f8c" }}>
-          <div style={inlineDivStyle}>
-            <TrendingUp style={{ marginRight: "5px" }} />
-            <div>Interest Accrued</div>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={
-                <ToolTip>
-                  The total dollar amount of interest accrued during the time
-                  period
-                </ToolTip>
-              }
-            >
-              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
-            </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
-            {props.totalInterest === undefined
-              ? "---"
-              : `$${formatNumberWithCommas(props.totalInterest)}`}
+              : `$${formatNumberWithCommas(props.startingCapital)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#ac04b8" }}>
@@ -106,7 +78,30 @@ function CalculationResultJumbotron(props) {
           <div style={resultTextStyle}>
             {props.totalContributions === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.totalContributions)}`}
+              : `+$${formatNumberWithCommas(props.totalContributions)}`}
+          </div>
+        </div>
+        <div style={{ ...divStyle, color: "#232f8c" }}>
+          <div style={inlineDivStyle}>
+            <TrendingUp style={{ marginRight: "5px" }} />
+            <div>Interest Accrued</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The total dollar amount of interest accrued during the time
+                  period
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </div>
+          <div style={resultTextStyle}>
+            {props.totalInterest === undefined
+              ? "---"
+              : `+$${formatNumberWithCommas(props.totalInterest)}`}
           </div>
         </div>
       </div>
@@ -139,7 +134,7 @@ function CalculationResultJumbotron(props) {
           <div style={resultTextStyle}>
             {props.totalExpenseRatioFees === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
+              : `-$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
           </div>
         </div>
         <div style={{ ...divStyle, color: "#d46e08" }}>
@@ -162,23 +157,20 @@ function CalculationResultJumbotron(props) {
           <div style={resultTextStyle}>
             {props.totalAdvisorFees === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.totalAdvisorFees)}`}
+              : `-$${formatNumberWithCommas(props.totalAdvisorFees)}`}
           </div>
         </div>
-        <div style={{ ...divStyle, color: "#51168c" }}>
+        <div style={{ ...divStyle, color: "#055e11" }}>
           <div style={inlineDivStyle}>
-            <BusinessCenter style={{ marginRight: "5px" }} />
-            <div>Passive Income</div>
+            <AttachMoney />
+            <div>Ending Capital</div>
             <OverlayTrigger
               key="startingAmount"
               placement="right"
               overlay={
                 <ToolTip>
-                  The projected passive income from the ending capital. Passive
-                  income is the amount that can be withdrawn from the account on
-                  a yearly basis indefinitely, while maintaining the value of
-                  the ending capital. The basic formula is: base capital * (rate
-                  of return - inflation rate).
+                  The projected total monetary value of the account at the end
+                  of the time period
                 </ToolTip>
               }
             >
@@ -186,9 +178,9 @@ function CalculationResultJumbotron(props) {
             </OverlayTrigger>
           </div>
           <div style={resultTextStyle}>
-            {props.passiveIncome === undefined
+            {props.capital === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.passiveIncome)}/year`}
+              : `$${formatNumberWithCommas(props.capital)}`}
           </div>
         </div>
       </div>
@@ -222,7 +214,7 @@ function CalculationResultJumbotron(props) {
           <div style={resultTextStyle}>
             {props.totalExpenseRatioOpportunityCost === undefined
               ? "---"
-              : `$${formatNumberWithCommas(
+              : `-$${formatNumberWithCommas(
                   props.totalExpenseRatioOpportunityCost
                 )}`}
           </div>
@@ -248,10 +240,37 @@ function CalculationResultJumbotron(props) {
           <div style={resultTextStyle}>
             {props.totalAdvisorOpportunityCost === undefined
               ? "---"
-              : `$${formatNumberWithCommas(props.totalAdvisorOpportunityCost)}`}
+              : `-$${formatNumberWithCommas(
+                  props.totalAdvisorOpportunityCost
+                )}`}
           </div>
         </div>
-        <div style={{ ...divStyle, color: "#ac04b8" }}></div>
+        <div style={{ ...divStyle, color: "#51168c" }}>
+          <div style={inlineDivStyle}>
+            <BusinessCenter style={{ marginRight: "5px" }} />
+            <div>Passive Income</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The projected passive income from the ending capital. Passive
+                  income is the amount that can be withdrawn from the account on
+                  a yearly basis indefinitely, while maintaining the value of
+                  the ending capital. The basic formula is: base capital * (rate
+                  of return - inflation rate).
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </div>
+          <div style={resultTextStyle}>
+            {props.passiveIncome === undefined
+              ? "---"
+              : `$${formatNumberWithCommas(props.passiveIncome)}/year`}
+          </div>
+        </div>
       </div>
     </Jumbotron>
   );
@@ -294,6 +313,7 @@ function mapStateToProps({ results }) {
 
   return {
     capital: resultSet.capital[0].data[resultSet.capital[0].data.length - 1].y,
+    startingCapital: resultSet.capital[0].data[0].y,
     totalInterest:
       resultSet.totalInterest[0].data[
         resultSet.totalInterest[0].data.length - 1

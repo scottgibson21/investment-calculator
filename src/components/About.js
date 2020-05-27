@@ -9,7 +9,7 @@ function About() {
     <Container style={styles.container} fluid="md">
       <Row>
         <Col style={styles.aboutHeader}>
-          <span>About Investio</span>
+          <span>About Nvestio</span>
         </Col>
       </Row>
       <Row>
