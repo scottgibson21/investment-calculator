@@ -334,7 +334,7 @@ const styles = {
     flexDirection: "column",
     backgroundColor: "#BDC3C7",
     borderRadius: "15px",
-    marginTop: 60,
+    marginTop: 30,
     padding: 20,
     color: "black",
   },

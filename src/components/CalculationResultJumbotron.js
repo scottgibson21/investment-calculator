@@ -27,7 +27,7 @@ function CalculationResultJumbotron(props) {
         flexDirection: "column",
         alignItems: "flex-start",
         padding: "0 0 0 0",
-        marginTop: 60,
+        marginTop: 30,
       }}
     >
       <h2 style={styles.overviewHeader}>Overview</h2>
