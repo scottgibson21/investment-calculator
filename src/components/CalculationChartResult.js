@@ -6,11 +6,18 @@ import Container from "react-bootstrap/Container";
 import NivoCalculationChart from "./NivoCalculationChart";
 
 function CalculationChartResult(props) {
-  //const { resultSet } = props;
+  const { resultSet } = props;
 
-  // if (resultSet === undefined) {
-  //   return <div></div>;
-  // }
+  if (resultSet === undefined) {
+    return (
+      <Container style={{ height: 320, ...styles.mainContainer }} fluid>
+        <h2 style={styles.detailsHeader}>Details</h2>
+        <h2 style={styles.detailsSubHeader}>
+          To get started, enter your info in the calculator to the left.
+        </h2>
+      </Container>
+    );
+  }
 
   return (
     <Container style={styles.mainContainer} fluid>
@@ -75,6 +82,12 @@ const styles = {
     color: "black",
     alignSelf: "center",
     marginTop: 20,
+  },
+  detailsSubHeader: {
+    fontSize: 20,
+    color: "black",
+    alignSelf: "center",
+    marginTop: 75,
   },
   chartHeader: {
     fontSize: "1rem",
