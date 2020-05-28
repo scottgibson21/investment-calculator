@@ -75,9 +75,9 @@ function CalculationInput(props) {
   return (
     <Formik
       initialValues={{
-        startingAmount: 10000,
-        monthlyContribution: 1000,
-        numberOfYears: 10,
+        startingAmount: "",
+        monthlyContribution: "",
+        numberOfYears: "",
         rateOfReturn: 7.5,
         expenseRatio: 1.0,
         finacialAdvisorFees: 1.0,
