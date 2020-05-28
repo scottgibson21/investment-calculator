@@ -12,7 +12,7 @@ import { formatNumberWithCommas } from "../utils/helpers";
 import { InfoCircle } from "react-bootstrap-icons";
 import Row from "react-bootstrap/Row";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import ToolTip from "react-bootstrap/ToolTip";
+import ToolTip from "react-bootstrap/Tooltip";
 
 function CalculationResultJumbotron(props) {
   return (
