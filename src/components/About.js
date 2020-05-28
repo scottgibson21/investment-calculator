@@ -21,10 +21,14 @@ function About() {
         <Col style={styles.aboutBody}>
           <div style={styles.aboutBodyDiv}>
             <p>
-              {" "}
-              Hi I'm Scott, Im a software engineer with a passion for personal
-              finance and investing. I am a firm believer that investing
-              knowledge should be freely available for all.
+              Hi I'm Scott. I’m a software engineer with a passion for personal
+              finance and investing. I created Nvestio as a tool for
+              illustrating the power of compounding interest and spreading
+              awareness and knowledge about personal investing.
+            </p>
+            <p style={styles.signature}>
+              <br />
+              Scott
             </p>
           </div>
         </Col>
@@ -63,6 +67,10 @@ const styles = {
     width: 500,
     fontFamily: "Roboto",
     textAlign: "center",
+    fontSize: 18,
+  },
+  signature: {
+    textAlign: "left",
   },
 };
 
