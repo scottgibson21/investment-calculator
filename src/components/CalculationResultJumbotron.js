@@ -10,38 +10,21 @@ import {
 import { connect } from "react-redux";
 import { formatNumberWithCommas } from "../utils/helpers";
 import { InfoCircle } from "react-bootstrap-icons";
-import Row from "react-bootstrap/Row";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import ToolTip from "react-bootstrap/Tooltip";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function CalculationResultJumbotron(props) {
   return (
-    <Jumbotron
-      fluid
-      style={{
-        borderRadius: "15px",
-        backgroundColor: "#BDC3C7",
-        width: "100%",
-        height: 400,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        padding: "0 0 0 0",
-        marginTop: 30,
-      }}
-    >
-      <h2 style={styles.overviewHeader}>Overview</h2>
+    <Jumbotron fluid style={styles.jumbotron}>
+      <Row style={styles.jumbotronHeaderRow}>
+        <h2 style={styles.overviewHeader}>Overview</h2>
+      </Row>
       {/* ROW 1*/}
-      <div
-        style={{
-          height: "100px",
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-        }}
-      >
-        <div style={{ ...divStyle, color: "#055e11" }}>
-          <div style={inlineDivStyle}>
+      <Row style={styles.jumbotronRow}>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <AttachMoney style={{ marginRight: "5px" }} />
             <div>Starting Capital</div>
             <OverlayTrigger
@@ -51,15 +34,15 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.startingCapital === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.startingCapital)}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#ac04b8" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <BusinessCenter style={{ marginRight: "5px" }} />
             <div>Total Contributions</div>
             <OverlayTrigger
@@ -74,15 +57,15 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalContributions === undefined
               ? "---"
               : `+$${formatNumberWithCommas(props.totalContributions)}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#232f8c" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <TrendingUp style={{ marginRight: "5px" }} />
             <div>Interest Accrued</div>
             <OverlayTrigger
@@ -97,25 +80,18 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalInterest === undefined
               ? "---"
               : `+$${formatNumberWithCommas(props.totalInterest)}`}
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Col>
+      </Row>
       {/* ROW 2*/}
-      <div
-        style={{
-          height: "100px",
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-        }}
-      >
-        <div style={{ ...divStyle, color: "#bd1209" }}>
-          <div style={inlineDivStyle}>
+      <Row style={styles.jumbotronRow}>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <AccountBalance style={{ marginRight: "5px" }} />
             <div>Expense Ratio Fees</div>
             <OverlayTrigger
@@ -130,15 +106,15 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalExpenseRatioFees === undefined
               ? "---"
               : `-$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#d46e08" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <Person style={{ marginRight: "5px" }} />
             <div>Financial Advisor Fees</div>
             <OverlayTrigger
@@ -153,15 +129,15 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalAdvisorFees === undefined
               ? "---"
               : `-$${formatNumberWithCommas(props.totalAdvisorFees)}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#055e11" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <AttachMoney />
             <div>Ending Capital</div>
             <OverlayTrigger
@@ -176,25 +152,18 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.capital === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.capital)}`}
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Col>
+      </Row>
       {/*Row 3*/}
-      <div
-        style={{
-          height: "100px",
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
-        }}
-      >
-        <div style={{ ...divStyle, color: "#bd1209" }}>
-          <div style={inlineDivStyle}>
+      <Row style={styles.jumbotronRow}>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <AccountBalance style={{ marginRight: "5px" }} />
             <div>Expense Ratio Opportunity Cost</div>
             <OverlayTrigger
@@ -210,17 +179,17 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalExpenseRatioOpportunityCost === undefined
               ? "---"
               : `-$${formatNumberWithCommas(
                   props.totalExpenseRatioOpportunityCost
                 )}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#d46e08" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <Person style={{ marginRight: "5px" }} />
             <div>Financial Adivsor Opportunity Cost</div>
             <OverlayTrigger
@@ -236,17 +205,17 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.totalAdvisorOpportunityCost === undefined
               ? "---"
               : `-$${formatNumberWithCommas(
                   props.totalAdvisorOpportunityCost
                 )}`}
-          </div>
-        </div>
-        <div style={{ ...divStyle, color: "#51168c" }}>
-          <div style={inlineDivStyle}>
+          </Row>
+        </Col>
+        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
+          <Row>
             <BusinessCenter style={{ marginRight: "5px" }} />
             <div>Passive Income</div>
             <OverlayTrigger
@@ -264,19 +233,48 @@ function CalculationResultJumbotron(props) {
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
-          </div>
-          <div style={resultTextStyle}>
+          </Row>
+          <Row>
             {props.passiveIncome === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.passiveIncome)}/year`}
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Col>
+      </Row>
     </Jumbotron>
   );
 }
 
 const styles = {
+  jumbotron: {
+    borderRadius: "15px",
+    backgroundColor: "#BDC3C7",
+    width: "100%",
+    height: "auto",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    padding: "0 0 0 0",
+    marginTop: 30,
+  },
+  jumbotronHeaderRow: {
+    height: "100px",
+    width: "100%",
+    justifyContent: "center",
+    margin: 0,
+  },
+  jumbotronRow: {
+    height: "auto",
+    width: "100%",
+    justifyContent: "space-between",
+    margin: 0,
+  },
+  jumbotronColumn: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingBottom: 25,
+  },
   overviewHeader: {
     fontFamily: "Permanent Marker",
     fontSize: 35,
@@ -284,24 +282,6 @@ const styles = {
     alignSelf: "center",
     marginTop: 20,
   },
-};
-
-const divStyle = {
-  width: "100%",
-  justifyContent: "center",
-  height: "100px",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  fontWeight: "bold",
-};
-
-const inlineDivStyle = {
-  display: "flex",
-};
-
-const resultTextStyle = {
-  fontSize: "x-large",
 };
 
 function mapStateToProps({ results }) {

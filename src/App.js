@@ -6,19 +6,20 @@ import FeedbackButton from "./components/FeedbackButton";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 function App() {
   return (
     <Router>
-      <div>
+      <React.Fragment>
         <Navigation />
-        <div>
+        <Container fluid>
           <Route path="/" exact component={Dashboard} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
-        </div>
+        </Container>
         <FeedbackButton />
-      </div>
+      </React.Fragment>
     </Router>
   );
 }

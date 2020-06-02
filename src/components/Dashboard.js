@@ -8,27 +8,23 @@ import CalculationResultJumbotron from "./CalculationResultJumbotron";
 
 export default function Dashboard() {
   return (
-    <div style={{ height: 2000, margin: 0 }}>
-      <Container fluid style={styles.container}>
-        <Row style={{ width: "auto" }}>
+    <Row>
+      <Col sm={12} md={4}>
+        <CalculationInput />
+      </Col>
+      <Col sm={12} md={8}>
+        <Row>
           <Col>
-            <CalculationInput />
-          </Col>
-          <Col style={styles.resultsColumn}>
-            <Row>
-              <Col>
-                <CalculationResultJumbotron />
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <CalculationChartResult />
-              </Col>
-            </Row>
+            <CalculationResultJumbotron />
           </Col>
         </Row>
-      </Container>
-    </div>
+        <Row>
+          <Col>
+            <CalculationChartResult />
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 }
 
