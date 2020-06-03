@@ -155,7 +155,7 @@ function CalculationResultJumbotron(props) {
           </div>
           <Row style={styles.dataHeader}>
             <AccountBalance style={{ marginRight: "5px" }} />
-            <div>Expense Ratio Opportunity Cost</div>
+            <div>Expense Ratio True Cost</div>
             <OverlayTrigger
               key="startingAmount"
               placement="right"
@@ -200,7 +200,7 @@ function CalculationResultJumbotron(props) {
           </div>
           <Row style={styles.dataHeader}>
             <Person style={{ marginRight: "5px" }} />
-            <div>Financial Adivsor Opportunity Cost</div>
+            <div>Adivsor True Cost</div>
             <OverlayTrigger
               key="startingAmount"
               placement="right"

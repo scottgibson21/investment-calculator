@@ -81,7 +81,7 @@ const styles = {
     paddingLeft: 30,
   },
   chart: {
-    width: 500,
+    width: "100%",
     height: 500,
     backgroundColor: "#4287f5",
   },
