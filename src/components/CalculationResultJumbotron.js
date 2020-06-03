@@ -18,13 +18,11 @@ import Col from "react-bootstrap/Col";
 function CalculationResultJumbotron(props) {
   return (
     <Jumbotron fluid style={styles.jumbotron}>
-      <Row style={styles.jumbotronHeaderRow}>
-        <h2 style={styles.overviewHeader}>Overview</h2>
-      </Row>
-      {/* ROW 1*/}
+      {/* Column 1*/}
       <Row style={styles.jumbotronRow}>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
+        <Col style={styles.jumbotronColumn} sm={12} lg={6}>
+          <h2 style={styles.overviewHeader}>Overview</h2>
+          <Row style={styles.dataHeader}>
             <AttachMoney style={{ marginRight: "5px" }} />
             <div>Starting Capital</div>
             <OverlayTrigger
@@ -35,14 +33,12 @@ function CalculationResultJumbotron(props) {
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </Row>
-          <Row>
+          <div style={styles.dataValue}>
             {props.startingCapital === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.startingCapital)}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
+          </div>
+          <Row style={styles.dataHeader}>
             <BusinessCenter style={{ marginRight: "5px" }} />
             <div>Total Contributions</div>
             <OverlayTrigger
@@ -58,14 +54,12 @@ function CalculationResultJumbotron(props) {
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </Row>
-          <Row>
+          <div style={styles.dataValue}>
             {props.totalContributions === undefined
               ? "---"
-              : `+$${formatNumberWithCommas(props.totalContributions)}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
+              : `$${formatNumberWithCommas(props.totalContributions)}`}
+          </div>
+          <Row style={styles.dataHeader}>
             <TrendingUp style={{ marginRight: "5px" }} />
             <div>Interest Accrued</div>
             <OverlayTrigger
@@ -81,63 +75,12 @@ function CalculationResultJumbotron(props) {
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </Row>
-          <Row>
+          <div style={styles.dataValue}>
             {props.totalInterest === undefined
               ? "---"
-              : `+$${formatNumberWithCommas(props.totalInterest)}`}
-          </Row>
-        </Col>
-      </Row>
-      {/* ROW 2*/}
-      <Row style={styles.jumbotronRow}>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
-            <AccountBalance style={{ marginRight: "5px" }} />
-            <div>Expense Ratio Fees</div>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={
-                <ToolTip>
-                  The total dollar amount lost to expense ratio fees during the
-                  time period
-                </ToolTip>
-              }
-            >
-              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
-            </OverlayTrigger>
-          </Row>
-          <Row>
-            {props.totalExpenseRatioFees === undefined
-              ? "---"
-              : `-$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
-            <Person style={{ marginRight: "5px" }} />
-            <div>Financial Advisor Fees</div>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={
-                <ToolTip>
-                  The total dollar amount lost to financial advisor fees during
-                  the time period
-                </ToolTip>
-              }
-            >
-              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
-            </OverlayTrigger>
-          </Row>
-          <Row>
-            {props.totalAdvisorFees === undefined
-              ? "---"
-              : `-$${formatNumberWithCommas(props.totalAdvisorFees)}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
+              : `$${formatNumberWithCommas(props.totalInterest)}`}
+          </div>
+          <Row style={styles.dataHeader}>
             <AttachMoney />
             <div>Ending Capital</div>
             <OverlayTrigger
@@ -153,69 +96,12 @@ function CalculationResultJumbotron(props) {
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </Row>
-          <Row>
+          <div style={styles.dataValue}>
             {props.capital === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.capital)}`}
-          </Row>
-        </Col>
-      </Row>
-      {/*Row 3*/}
-      <Row style={styles.jumbotronRow}>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
-            <AccountBalance style={{ marginRight: "5px" }} />
-            <div>Expense Ratio Opportunity Cost</div>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={
-                <ToolTip>
-                  The true opportunity cost of the expense ratio fees. This is
-                  the dollar amount of the fees and the interest those fees
-                  would have earned had they remained as invested capital.
-                </ToolTip>
-              }
-            >
-              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
-            </OverlayTrigger>
-          </Row>
-          <Row>
-            {props.totalExpenseRatioOpportunityCost === undefined
-              ? "---"
-              : `-$${formatNumberWithCommas(
-                  props.totalExpenseRatioOpportunityCost
-                )}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
-            <Person style={{ marginRight: "5px" }} />
-            <div>Financial Adivsor Opportunity Cost</div>
-            <OverlayTrigger
-              key="startingAmount"
-              placement="right"
-              overlay={
-                <ToolTip>
-                  The true opportunity cost of the financial advisor fees. This
-                  is the dollar amount of the fees and the interest those fees
-                  would have earned had they remained as invested capital.
-                </ToolTip>
-              }
-            >
-              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
-            </OverlayTrigger>
-          </Row>
-          <Row>
-            {props.totalAdvisorOpportunityCost === undefined
-              ? "---"
-              : `-$${formatNumberWithCommas(
-                  props.totalAdvisorOpportunityCost
-                )}`}
-          </Row>
-        </Col>
-        <Col style={styles.jumbotronColumn} sm={12} lg={4}>
-          <Row>
+          </div>
+          <Row style={styles.dataHeader}>
             <BusinessCenter style={{ marginRight: "5px" }} />
             <div>Passive Income</div>
             <OverlayTrigger
@@ -234,11 +120,108 @@ function CalculationResultJumbotron(props) {
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
             </OverlayTrigger>
           </Row>
-          <Row>
+          <div style={styles.dataValue}>
             {props.passiveIncome === undefined
               ? "---"
               : `$${formatNumberWithCommas(props.passiveIncome)}/year`}
+          </div>
+        </Col>
+        <Col
+          style={{ color: "#d60412", ...styles.jumbotronColumn }}
+          sm={12}
+          lg={6}
+        >
+          <h2 style={styles.overviewHeader}>Fees</h2>
+          <Row style={styles.dataHeader}>
+            <AccountBalance style={{ marginRight: "5px" }} />
+            <div>Expense Ratio Fees</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The total dollar amount lost to expense ratio fees during the
+                  time period
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
           </Row>
+          <div style={styles.dataValue}>
+            {props.totalExpenseRatioFees === undefined
+              ? "---"
+              : `-$${formatNumberWithCommas(props.totalExpenseRatioFees)}`}
+          </div>
+          <Row style={styles.dataHeader}>
+            <AccountBalance style={{ marginRight: "5px" }} />
+            <div>Expense Ratio Opportunity Cost</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The true opportunity cost of the expense ratio fees. This is
+                  the dollar amount of the fees and the interest those fees
+                  would have earned had they remained as invested capital.
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </Row>
+          <div style={styles.dataValue}>
+            {props.totalExpenseRatioOpportunityCost === undefined
+              ? "---"
+              : `-$${formatNumberWithCommas(
+                  props.totalExpenseRatioOpportunityCost
+                )}`}
+          </div>
+          <Row style={styles.dataHeader}>
+            <Person style={{ marginRight: "5px" }} />
+            <div>Financial Advisor Fees</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The total dollar amount lost to financial advisor fees during
+                  the time period
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </Row>
+          <div style={styles.dataValue}>
+            {props.totalAdvisorFees === undefined
+              ? "---"
+              : `-$${formatNumberWithCommas(props.totalAdvisorFees)}`}
+          </div>
+          <Row style={styles.dataHeader}>
+            <Person style={{ marginRight: "5px" }} />
+            <div>Financial Adivsor Opportunity Cost</div>
+            <OverlayTrigger
+              key="startingAmount"
+              placement="right"
+              overlay={
+                <ToolTip>
+                  The true opportunity cost of the financial advisor fees. This
+                  is the dollar amount of the fees and the interest those fees
+                  would have earned had they remained as invested capital.
+                </ToolTip>
+              }
+            >
+              <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
+            </OverlayTrigger>
+          </Row>
+          <div style={styles.dataValue}>
+            {props.totalAdvisorOpportunityCost === undefined
+              ? "---"
+              : `-$${formatNumberWithCommas(
+                  props.totalAdvisorOpportunityCost
+                )}`}
+          </div>
         </Col>
       </Row>
     </Jumbotron>
@@ -255,7 +238,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "flex-start",
     padding: "0 0 0 0",
-    marginTop: 30,
+    margin: 15,
   },
   jumbotronHeaderRow: {
     height: "100px",
@@ -273,14 +256,23 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingBottom: 25,
+    paddingBottom: 0,
   },
   overviewHeader: {
     fontFamily: "Permanent Marker",
     fontSize: 35,
-    color: "black",
     alignSelf: "center",
     marginTop: 20,
+    marginBottom: 20,
+  },
+  dataHeader: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  dataValue: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 20,
   },
 };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
@@ -9,19 +8,15 @@ import CalculationResultJumbotron from "./CalculationResultJumbotron";
 export default function Dashboard() {
   return (
     <Row>
-      <Col sm={12} md={4}>
+      <Col sm={12} md={4} style={styles.column}>
         <CalculationInput />
       </Col>
-      <Col sm={12} md={8}>
+      <Col sm={12} md={8} style={styles.column}>
         <Row>
-          <Col>
-            <CalculationResultJumbotron />
-          </Col>
+          <CalculationResultJumbotron />
         </Row>
         <Row>
-          <Col>
-            <CalculationChartResult />
-          </Col>
+          <CalculationChartResult />
         </Row>
       </Col>
     </Row>
@@ -29,12 +24,8 @@ export default function Dashboard() {
 }
 
 const styles = {
-  container: {
-    paddingLeft: 50,
-    paddingRight: 50,
-    color: "#FFFFFF",
-  },
-  resultsColumn: {
-    flex: 3,
+  column: {
+    margin: 0,
+    padding: 15,
   },
 };

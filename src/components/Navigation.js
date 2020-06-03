@@ -9,7 +9,7 @@ export default function Navigation() {
       <Navbar.Brand style={styles.navbarBrand}>
         <Link to="/">
           <img
-            src={require("../assets/logo3.png")}
+            src={require("../assets/nvestio-logo-colors.png")}
             height="75"
             alt="React Bootstrap logo"
           />
