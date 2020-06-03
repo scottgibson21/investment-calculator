@@ -41,7 +41,7 @@ export default function Navigation() {
 
 const styles = {
   navbarBrand: {
-    marginLeft: 40,
+    marginLeft: 0,
   },
   nav: {
     fontSize: "25px",
