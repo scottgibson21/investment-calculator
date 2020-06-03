@@ -10,70 +10,48 @@ function CalculationChartResult(props) {
 
   if (resultSet === undefined) {
     return (
-      <Container style={{ height: 320, ...styles.mainContainer }} fluid>
-        <h2 style={styles.detailsHeader}>Details</h2>
+      <Col style={{ height: 320, ...styles.mainContainer }}>
+        <h2 style={styles.detailsHeader}>Charts</h2>
         <h2 style={styles.detailsSubHeader}>
-          To get started, enter your info in the calculator to the left.
+          To get started, enter your info in the calculator.
         </h2>
-      </Container>
+      </Col>
     );
   }
 
   return (
-    <Container style={styles.mainContainer} fluid>
-      <h2 style={styles.detailsHeader}>Details</h2>
-      <Row style={{ paddingTop: 50, ...styles.row }}>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Capital</h2>
-          <NivoCalculationChart chartKey={"capital"} />
-        </Col>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Total Contributions</h2>
-          <NivoCalculationChart chartKey={"totalContributions"} />
-        </Col>
-      </Row>
-      <Row style={styles.row}>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Interest</h2>
-          <NivoCalculationChart chartKey={"interest"} />
-        </Col>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Total interest</h2>
-          <NivoCalculationChart chartKey={"totalInterest"} />
-        </Col>
-      </Row>
-      <Row style={styles.row}>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Expense Ratio Fees</h2>
-          <NivoCalculationChart chartKey={"expenseRatioFees"} />
-        </Col>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>total Expense Ratio Fees</h2>
-          <NivoCalculationChart chartKey={"totalExpenseRatioFees"} />
-        </Col>
-      </Row>
-      <Row style={styles.row}>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Advisor Fees</h2>
-          <NivoCalculationChart chartKey={"adivsorFees"} />
-        </Col>
-        <Col style={styles.column}>
-          <h2 style={styles.chartHeader}>Passive Income</h2>
-          <NivoCalculationChart chartKey={"passiveIncome"} />
-        </Col>
-      </Row>
-    </Container>
+    <Col style={styles.mainContainer}>
+      <h2 style={styles.detailsHeader}>Charts</h2>
+      <h2 style={styles.chartHeader}>Total Capital</h2>
+      <div style={{ height: 500, width: "100%" }}>
+        <NivoCalculationChart style={styles.chart} chartKey={"capital"} />
+      </div>
+      <h2 style={styles.chartHeader}>Expense Ratio Fees</h2>
+      <div style={{ height: 500, width: "100%" }}>
+        <NivoCalculationChart
+          style={styles.chart}
+          chartKey={"totalExpenseRatioFees"}
+        />
+      </div>
+      <h2 style={styles.chartHeader}>Advisor Fees</h2>
+      <div style={{ height: 500, width: "100%" }}>
+        <NivoCalculationChart
+          style={styles.chart}
+          chartKey={"totalAdvisorFees"}
+        />
+      </div>
+    </Col>
   );
 }
 
 const styles = {
   mainContainer: {
+    display: "flex",
     backgroundColor: "#BDC3C7",
     borderRadius: "15px",
-    margin: 0,
+    margin: 15,
+    alignItems: "center",
     width: "100%",
-    color: "#000000",
-    display: "flex",
     flexDirection: "column",
   },
   detailsHeader: {
@@ -93,12 +71,19 @@ const styles = {
     fontSize: "1rem",
     fontWeight: "bold",
     paddingLeft: 50,
+    alignSelf: "flex-start",
   },
   column: {
     height: 500,
+    width: 500,
   },
   row: {
     paddingLeft: 30,
+  },
+  chart: {
+    width: 500,
+    height: 500,
+    backgroundColor: "#4287f5",
   },
 };
 
