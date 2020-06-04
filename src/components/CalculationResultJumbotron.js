@@ -27,7 +27,7 @@ function CalculationResultJumbotron(props) {
             <div>Starting Capital</div>
             <OverlayTrigger
               key="startingCapital"
-              placement="right"
+              placement="top"
               overlay={<ToolTip>The starting amount of capital</ToolTip>}
             >
               <InfoCircle style={{ marginLeft: 10, marginTop: "5px" }} />
@@ -43,7 +43,7 @@ function CalculationResultJumbotron(props) {
             <div>Total Contributions</div>
             <OverlayTrigger
               key="totalContributions"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The total dollar amount of contributions made during the time
@@ -64,7 +64,7 @@ function CalculationResultJumbotron(props) {
             <div>Interest Accrued</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The total dollar amount of interest accrued during the time
@@ -85,7 +85,7 @@ function CalculationResultJumbotron(props) {
             <div>Ending Capital</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The projected total monetary value of the account at the end
@@ -106,7 +106,7 @@ function CalculationResultJumbotron(props) {
             <div>Passive Income</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The projected passive income from the ending capital. Passive
@@ -137,7 +137,7 @@ function CalculationResultJumbotron(props) {
             <div>Expense Ratio Fees</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The total dollar amount lost to expense ratio fees during the
@@ -158,7 +158,7 @@ function CalculationResultJumbotron(props) {
             <div>Expense Ratio True Cost</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The true opportunity cost of the expense ratio fees. This is
@@ -182,7 +182,7 @@ function CalculationResultJumbotron(props) {
             <div>Financial Advisor Fees</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The total dollar amount lost to financial advisor fees during
@@ -203,7 +203,7 @@ function CalculationResultJumbotron(props) {
             <div>Adivsor True Cost</div>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The true opportunity cost of the financial advisor fees. This

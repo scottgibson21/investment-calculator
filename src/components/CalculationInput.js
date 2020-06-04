@@ -102,7 +102,7 @@ function CalculationInput(props) {
             <Form.Label>Starting Amount</Form.Label>
             <OverlayTrigger
               key="startingAmount"
-              placement="right"
+              placement="top"
               overlay={<ToolTip>The initial investment amount</ToolTip>}
             >
               <InfoCircle style={{ marginLeft: 10, marginBottom: 3 }} />
@@ -128,7 +128,7 @@ function CalculationInput(props) {
             <Form.Label>Monthly Contribution</Form.Label>
             <OverlayTrigger
               key="monthlyContribution"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The dollar amount you plan to contribute monthly to the
@@ -161,7 +161,7 @@ function CalculationInput(props) {
             <Form.Label>Number of Years</Form.Label>
             <OverlayTrigger
               key="numberOfYears"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   They total number of years that the investment will accrue
@@ -187,7 +187,7 @@ function CalculationInput(props) {
             <Form.Label>Rate of Return</Form.Label>
             <OverlayTrigger
               key="rateOfReturn"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The average rate of return for the investment. The average
@@ -219,7 +219,7 @@ function CalculationInput(props) {
             <Form.Label>Expense Ratio</Form.Label>
             <OverlayTrigger
               key="expenseRatio"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The expense ratio of an index fund or mutual fund measures how
@@ -253,7 +253,7 @@ function CalculationInput(props) {
             <Form.Label>Financial Advisor Fees</Form.Label>
             <OverlayTrigger
               key="monthlyContribution"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   Optional, if you have a financial advisor managaging your
@@ -289,7 +289,7 @@ function CalculationInput(props) {
             <Form.Label>Average Inflation Rate</Form.Label>
             <OverlayTrigger
               key="inflationRate"
-              placement="right"
+              placement="top"
               overlay={
                 <ToolTip>
                   The average inflation rate in the US over the last 100 years
