@@ -13,20 +13,16 @@ function Contact() {
   };
 
   return (
-    <Container style={styles.container} fluid="md">
-      <Row>
-        <Col style={styles.jumbotron}>
-          <Alert style={styles.alert} variant="danger">
-            <h2>COMING SOON</h2>
-          </Alert>
-        </Col>
-      </Row>
-      <Row>
-        <Col style={styles.contactHeader}>
-          <span>Contact Us</span>
-        </Col>
-      </Row>
-      <Row style={styles.formRow}>
+    <Row style={styles.mainRow} fluid="md">
+      <Col style={styles.column} sm={12} md={8} lg={6}>
+        <Alert style={styles.alert} variant="danger">
+          <h2>COMING SOON</h2>
+          <p style={styles.alertSubtext}>
+            Thanks for your patience, this page is a work in progress. We should
+            have it up and running soon.
+          </p>
+        </Alert>
+        <span style={styles.contactHeader}>Contact Us</span>
         <Form style={styles.form} onSubmit={onSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -52,33 +48,45 @@ function Contact() {
             Submit
           </Button>
         </Form>
-      </Row>
-    </Container>
+      </Col>
+    </Row>
   );
 }
 
 const styles = {
-  container: {
+  mainRow: {
     justifyContent: "center",
     alignItems: "center",
     color: "#FFFFFF",
+    margin: 0,
   },
-  contactHeader: {
-    marginTop: 25,
+  column: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
     alignItems: "center",
-    height: 150,
-    fontFamily: "Permanent Marker",
-    fontSize: 75,
+    backgroundColor: "#BDC3C7",
+    borderRadius: "15px",
+    color: "black",
+    margin: 15,
   },
   alert: {
-    marginTop: 25,
+    margin: 15,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
     height: 150,
+    width: "100%",
     fontSize: 75,
+  },
+  alertSubtext: {
+    fontSize: "1rem",
+    textAlign: "center",
+  },
+  contactHeader: {
+    fontFamily: "Permanent Marker",
+    fontSize: 75,
+    textAlign: "center",
   },
   formRow: {
     display: "flex",
@@ -86,9 +94,10 @@ const styles = {
   },
   form: {
     display: "flex",
-    width: 800,
     fontWeight: "bold",
     flexDirection: "column",
+    width: "100%",
+    marginBottom: 15,
   },
   submitButton: {
     width: 200,
