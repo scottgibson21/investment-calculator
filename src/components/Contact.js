@@ -77,6 +77,7 @@ const styles = {
     height: 150,
     width: "100%",
     fontSize: 75,
+    borderRadius: "15px",
   },
   alertSubtext: {
     fontSize: "1rem",
