@@ -1,13 +1,16 @@
 import React from "react";
 import Fab from "@material-ui/core/Fab";
 import { MailOutline } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function FeedbackButton() {
   return (
-    <Fab color="secondary" style={style} variant="extended">
-      <MailOutline style={{ marginRight: 5 }} />
-      Feedback
-    </Fab>
+    <Link to="/contact">
+      <Fab color="secondary" style={style} variant="extended">
+        <MailOutline style={{ marginRight: 5 }} />
+        Feedback
+      </Fab>
+    </Link>
   );
 }
 
