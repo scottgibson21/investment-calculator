@@ -11,7 +11,11 @@ function About() {
           <span>About Nvestio</span>
         </div>
         <div style={styles.aboutPic}>
-          <Image src={require("../assets/cat-pic.jpg")} roundedCircle />
+          <Image
+            src={require("../assets/about-pic.jpg")}
+            style={styles.pic}
+            roundedCircle
+          />
         </div>
         <div style={styles.aboutBodyDiv}>
           <p>
@@ -56,6 +60,9 @@ const styles = {
   },
   aboutPic: {
     textAlign: "center",
+  },
+  pic: {
+    height: 200,
   },
   aboutBody: {
     display: "flex",
