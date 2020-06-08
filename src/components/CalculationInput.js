@@ -8,8 +8,9 @@ import { calculateResultSet } from "../utils/helpers";
 import InputGroup from "react-bootstrap/InputGroup";
 import { connect } from "react-redux";
 import { addResultSet } from "../actions/resultSet";
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as yup from "yup";
+import ReactGA from "react-ga";
 
 const schema = yup.object().shape({
   startingAmount: yup
@@ -50,6 +51,12 @@ const schema = yup.object().shape({
 
 function CalculationInput(props) {
   const handleFormSubmit = (values) => {
+    //push an event to Google Analytics
+    ReactGA.event({
+      category: "Calculation",
+      action: "Calculation Submitted",
+    });
+
     console.log("handle submit called! values: ", values);
     console.log(
       "rate of return rouned to 2 decimal places",
