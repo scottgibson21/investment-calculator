@@ -5,12 +5,27 @@ import Dashboard from "./components/Dashboard";
 import FeedbackButton from "./components/FeedbackButton";
 import About from "./components/About";
 import Contact from "./components/Contact";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, withRouter, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
+
+//intialize Google Analytics
+ReactGA.initialize("UA-168853063-1");
+
+//Initialize google analytics page view tracking
+//Credit: https://levelup.gitconnected.com/using-google-analytics-with-react-3d98d709399b
+const history = createBrowserHistory();
+
+history.listen((location) => {
+  console.log("history callback hit!!!");
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <React.Fragment>
         <Navigation />
         <Container fluid>
