@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 function CalculationTutorialCard() {
   return (
     <div style={styles.videoContainer}>
-      <h2>Tutorial</h2>
+      <h2 style={styles.header}>Tutorial</h2>
       <div
         className="video"
         style={{
@@ -43,6 +43,10 @@ const styles = {
     borderRadius: "15px",
     color: "black",
     marginTop: 30,
+  },
+  header: {
+    fontFamily: "Permanent Marker",
+    fontSize: 35,
   },
   playerWrapper: {},
   video: {
