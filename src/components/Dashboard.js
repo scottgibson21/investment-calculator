@@ -4,12 +4,14 @@ import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
 import CalculationChartResult from "./CalculationChartResult";
 import CalculationResultJumbotron from "./CalculationResultJumbotron";
+import CalculationTutorialCard from "./CalculationTutorialCard";
 
 export default function Dashboard() {
   return (
     <Row>
       <Col sm={12} md={4} style={styles.column}>
         <CalculationInput />
+        <CalculationTutorialCard />
       </Col>
       <Col sm={12} md={8} style={styles.column}>
         <Row>
