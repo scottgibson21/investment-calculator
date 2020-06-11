@@ -12,7 +12,3 @@ Note: this repo is a work in progress.
 ## Calculations
 
 Calculations convert all dollars values to cents and percentages to basis points to avoid issues using floating point values for calculations.
-
-## Blog
-
-In Progress: The blog portion of this site will use WordPress as a headless CMS (WordPress REST API).
