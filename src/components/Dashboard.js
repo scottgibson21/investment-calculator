@@ -11,7 +11,6 @@ export default function Dashboard() {
     <Row>
       <Col sm={12} md={4} style={styles.column}>
         <CalculationInput />
-        <CalculationTutorialCard />
       </Col>
       <Col sm={12} md={8} style={styles.column}>
         <Row>
