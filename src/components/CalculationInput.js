@@ -82,12 +82,12 @@ function CalculationInput(props) {
   return (
     <Formik
       initialValues={{
-        startingAmount: 100000,
-        monthlyContribution: 1000,
-        numberOfYears: 10,
+        startingAmount: "",
+        monthlyContribution: "",
+        numberOfYears: "",
         rateOfReturn: 7.5,
-        expenseRatio: 1.0,
-        finacialAdvisorFees: 1.0,
+        expenseRatio: "",
+        finacialAdvisorFees: "",
         inflationRate: 3.22,
       }}
       validateOnChange
@@ -121,7 +121,7 @@ function CalculationInput(props) {
               <Form.Control
                 type="number"
                 name="startingAmount"
-                placeholder="0"
+                //placeholder="0"
                 onChange={handleChange}
                 value={values.startingAmount}
                 isInvalid={touched.startingAmount && !!errors.startingAmount}
@@ -152,7 +152,7 @@ function CalculationInput(props) {
               <Form.Control
                 type="number"
                 name="monthlyContribution"
-                placeholder="0"
+                //placeholder="0"
                 onChange={handleChange}
                 value={values.monthlyContribution}
                 isInvalid={
@@ -181,7 +181,7 @@ function CalculationInput(props) {
             <Form.Control
               type="number"
               name="numberOfYears"
-              placeholder="0"
+              //placeholder="0"
               onChange={handleChange}
               value={values.numberOfYears}
               isInvalid={touched.numberOfYears && !!errors.numberOfYears}
@@ -199,7 +199,7 @@ function CalculationInput(props) {
                 <ToolTip>
                   The average rate of return for the investment. The average
                   rate of return for the stock market as a whole over the last
-                  100 years is about 10%
+                  100 years is about 7.5%
                 </ToolTip>
               }
             >
@@ -212,7 +212,7 @@ function CalculationInput(props) {
               <Form.Control
                 type="number"
                 name="rateOfReturn"
-                placeholder="0.00"
+                //placeholder="0.00"
                 onChange={handleChange}
                 value={values.rateOfReturn}
                 isInvalid={touched.rateOfReturn && !!errors.rateOfReturn}
@@ -246,7 +246,7 @@ function CalculationInput(props) {
               <Form.Control
                 type="number"
                 name="expenseRatio"
-                placeholder="0.00"
+                //placeholder="0.00"
                 onChange={handleChange}
                 value={values.expenseRatio}
                 isInvalid={touched.expenseRatio && !!errors.expenseRatio}
@@ -280,7 +280,7 @@ function CalculationInput(props) {
               <Form.Control
                 type="number"
                 name="finacialAdvisorFees"
-                placeholder="0.00"
+                //placeholder="0.00"
                 onChange={handleChange}
                 value={values.finacialAdvisorFees}
                 isInvalid={
