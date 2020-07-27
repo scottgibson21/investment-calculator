@@ -4,7 +4,6 @@ import Col from "react-bootstrap/Col";
 import CalculationInput from "./CalculationInput";
 import CalculationChartResult from "./CalculationChartResult";
 import CalculationResultJumbotron from "./CalculationResultJumbotron";
-import CalculationTutorialCard from "./CalculationTutorialCard";
 
 export default function Dashboard() {
   return (
